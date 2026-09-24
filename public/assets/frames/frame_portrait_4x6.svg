@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1800" width="1200" height="1800">
+  <defs>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="16" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <!-- Frame Outer Solid Matting -->
+  <path d="M 0 0 L 1200 0 L 1200 1800 L 0 1800 Z M 65 140 L 65 1520 L 1135 1520 L 1135 140 Z" fill="#070B14" fill-rule="evenodd" filter="url(#cardShadow)"/>
+  
+  <!-- Sleek Cyan Inner Border -->
+  <rect x="64" y="139" width="1072" height="1382" fill="none" stroke="#1E293B" stroke-width="2"/>
+  <rect x="68" y="143" width="1064" height="1374" fill="none" stroke="#00F0FF" stroke-opacity="0.4" stroke-width="1.5"/>
+
+  <!-- Top Header Branding -->
+  <g transform="translate(68, 55)">
+    <circle cx="16" cy="28" r="6" fill="#00F0FF"/>
+    <text x="36" y="34" font-family="'Geist', sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" letter-spacing="4">GISTDA</text>
+    <text x="175" y="34" font-family="'Geist', sans-serif" font-size="20" font-weight="500" fill="#64748B">|</text>
+    <text x="195" y="34" font-family="'Geist', sans-serif" font-size="20" font-weight="700" fill="#38BDF8" letter-spacing="2">THAILAND SPACE EXPO 2026</text>
+    
+    <text x="1060" y="34" font-family="'Geist Mono', monospace" font-size="16" font-weight="700" fill="#00F0FF" text-anchor="end" letter-spacing="2">OCT 27–31, 2026</text>
+  </g>
+
+  <!-- Bottom Keepsake Bar -->
+  <line x1="65" y1="1560" x2="1135" y2="1560" stroke="#1E293B" stroke-width="2"/>
+  
+  <g transform="translate(65, 1590)">
+    <text x="0" y="35" font-family="'Geist', 'Prompt', sans-serif" font-size="34" font-weight="800" fill="#FFFFFF" letter-spacing="2">TSX 2026 VIP KEEPSAKE</text>
+    <text x="0" y="75" font-family="'Prompt', sans-serif" font-size="20" font-weight="400" fill="#94A3B8">สำนักงานพัฒนาเทคโนโลยีอวกาศและภูมิสารสนเทศ (องค์การมหาชน)</text>
+    <text x="0" y="105" font-family="'Geist Mono', monospace" font-size="14" font-weight="500" fill="#38BDF8" letter-spacing="1">ACTIVITY 4: VIP RECEPTION GALA • ICONSIAM RIVERFRONT</text>
+
+    <text x="1070" y="35" font-family="'Geist Mono', monospace" font-size="22" font-weight="800" fill="#00F0FF" text-anchor="end">4 × 6 INCH</text>
+    <text x="1070" y="70" font-family="'Geist Mono', monospace" font-size="14" font-weight="600" fill="#F59E0B" text-anchor="end" letter-spacing="1">DYE-SUB PRINT</text>
+    <text x="1070" y="100" font-family="'Geist Mono', monospace" font-size="12" font-weight="500" fill="#64748B" text-anchor="end">POWERED BY HAMO EVENT LAB</text>
+  </g>
+</svg>

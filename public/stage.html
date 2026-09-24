@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thailand Space Expo 2026 (TSX 2026) | Live Celebration Wall</title>
+  <link rel="icon" type="image/png" href="logo/gistda-color.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stage.css">
+</head>
+<body>
+  <!-- High-Luminance Aerospace Backlight Halo -->
+  <div class="stage-halo-glow" aria-hidden="true"></div>
+
+  <div class="stage-container">
+    
+    <!-- Stage Header HUD -->
+    <header class="stage-header">
+      <div class="stage-brand">
+        <img src="logo/gistda-white.png" alt="GISTDA Logo" class="stage-logo">
+        <div class="stage-divider"></div>
+        <div class="stage-titles">
+          <div class="stage-supertitle">GISTDA • THAILAND SPACE EXPO 2026 (TSX 2026)</div>
+          <h1 id="stage-headline" class="stage-main-title">LIVE CELEBRATION WALL</h1>
+        </div>
+      </div>
+      <div class="stage-telemetry-cluster">
+        <div class="telemetry-item">
+          <span class="telemetry-label">ORBIT</span>
+          <span class="telemetry-val">620 KM SSO</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-label">VENUE</span>
+          <span class="telemetry-val">TRUE ICON HALL</span>
+        </div>
+        <div class="stage-live-badge">
+          <span class="live-pulse"></span>
+          <span class="live-text">TELEMETRY LIVE</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Stage Canvas Area -->
+    <main class="stage-main">
+      <!-- Spotlight Hero Card -->
+      <div class="spotlight-wrapper">
+        <div id="spotlight-card" class="spotlight-card">
+          <div class="card-inner">
+            <div class="photo-glow-backdrop"></div>
+            <div class="stage-photo-frame">
+              <img id="stage-hero-img" src="themes/cosmic_astronaut.jpg" alt="Featured Mission Avatar" class="stage-hero-img">
+              <div class="stage-corner tl"></div>
+              <div class="stage-corner tr"></div>
+              <div class="stage-corner bl"></div>
+              <div class="stage-corner br"></div>
+              <div class="stage-telemetry-tag">THEOS-2 ORBITAL MISSION</div>
+            </div>
+            
+            <div class="stage-card-meta">
+              <div class="meta-badge-row">
+                <span id="stage-theme-tag" class="stage-theme-tag">THEOS-2 Earth Orbit</span>
+                <span id="stage-time-tag" class="stage-time-tag">JUST NOW</span>
+              </div>
+              <h2 id="stage-guest-name" class="stage-guest-name">DELEGATE AVATAR</h2>
+              <p class="stage-event-label">THAILAND SPACE EXPO 2026 • GISTDA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Photos Ribbon (Bottom Horizontal Carousel) -->
+      <aside class="recent-ribbon-bar">
+        <div class="ribbon-label">
+          <span>RECENT MISSION MOMENTS</span>
+          <span id="ribbon-count" class="ribbon-count">0 AVATARS</span>
+        </div>
+        <div id="ribbon-track" class="ribbon-track">
+          <!-- Recent photo cards injected here -->
+        </div>
+      </aside>
+    </main>
+
+    <!-- Stage Footer Bar with Attendee Call-to-Action -->
+    <footer class="stage-footer">
+      <div class="cta-left">
+        <span class="cta-icon">🛰️</span>
+        <div class="cta-text">
+          <h3>Step up to the GISTDA AI Mission Avatar Kiosk</h3>
+          <p>Create your accredited astronaut portrait and see yourself featured on this main stage celebration wall.</p>
+        </div>
+      </div>
+      
+      <div class="cta-right-group">
+        <div class="cta-powered">
+          <img src="logo/HAMO White.png" alt="HAMO" class="cta-hamo-logo">
+          <span>Powered by HAMO Event Lab</span>
+        </div>
+        <div class="cta-qr-box">
+          <div class="qr-label">
+            <span>SCAN TO JOIN</span>
+            <strong>MISSION STUDIO</strong>
+          </div>
+          <img id="stage-qr-code" src="" alt="Booth QR Code" class="stage-qr-img">
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="stage.js"></script>
+</body>
+</html>

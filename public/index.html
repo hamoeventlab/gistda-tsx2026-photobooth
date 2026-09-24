@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thailand Space Expo 2026 (TSX 2026) | GISTDA AI Mission Studio</title>
+  <link rel="icon" type="image/png" href="logo/gistda-color.png">
+  <link rel="shortcut icon" href="logo/gistda-color.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- High-Luminance Aerospace Backlight Halo -->
+  <div class="aerospace-halo-glow" aria-hidden="true"></div>
+
+  <div class="booth-container">
+    
+    <!-- Header HUD -->
+    <header class="header">
+      <div class="brand-badge">
+        <img src="logo/gistda-white.png" alt="GISTDA" class="brand-logo-img gistda-logo">
+        <div class="brand-divider-vert"></div>
+        <div class="brand-title-group">
+          <div class="agency-mission-pill">
+            <span class="pulse-rocket">🚀</span>
+            <span id="badge-agency-text" class="agency-text">GISTDA THAILAND</span>
+          </div>
+          <div class="brand-titles">
+            <h1 class="brand-title" id="txt-header-title">THAILAND SPACE EXPO 2026</h1>
+            <span class="brand-sub" id="txt-header-sub">AI MISSION AVATAR STUDIO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <!-- Dual Language Switcher (Pill Style, Matches Portal) -->
+        <div class="lang-switcher" role="group" aria-label="Language Switcher">
+          <button type="button" id="btn-lang-th" class="lang-btn" title="ภาษาไทย">TH</button>
+          <button type="button" id="btn-lang-en" class="lang-btn active" title="English">EN</button>
+        </div>
+
+        <a href="/stage" target="_blank" class="btn-stage-link" title="Open Stage LED Wall in new tab">
+          <span class="live-dot-pulse"></span>
+          <span id="txt-btn-stage">📺 Stage Screen</span>
+        </a>
+
+        <button id="btn-theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Theme" title="Toggle Theme">
+          <span class="theme-icon-sun">☀️</span>
+          <span class="theme-icon-moon">🌙</span>
+        </button>
+
+        <div id="engine-badge" class="badge">🛰️ Ready</div>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="main-content">
+      
+      <!-- STEP 1: THEME & COSTUME SELECTION -->
+      <section id="step-theme" class="step-screen active">
+        <div class="theme-select-box">
+          <div class="step-title-area">
+            <span class="step-tag" id="txt-step1-tag">STEP 1 OF 4</span>
+            <h2 id="txt-step1-title">Select Your Mission Style</h2>
+            <p class="step-desc" id="txt-step1-desc">Official THEOS-2 accredited deep space mission EVA suit:</p>
+            
+            <!-- Category Switcher Tabs -->
+            <div class="category-tabs">
+              <button id="tab-cat-costume" class="cat-tab active" data-cat="costume">
+                <span class="cat-icon">👨‍🚀</span>
+                <span id="txt-tab-costume">THEOS-2 Astronaut Suit (Face-Swap)</span>
+              </button>
+              <button id="tab-cat-generative" class="cat-tab" data-cat="generative">
+                <span class="cat-icon">⚡</span>
+                <span id="txt-tab-generative">Orbital Spacesuit (Generative AI)</span>
+              </button>
+            </div>
+          </div>
+
+          <div id="presets-grid" class="presets-grid">
+            <!-- Theme cards or costume cards injected dynamically -->
+          </div>
+
+          <div class="action-footer">
+            <button id="btn-confirm-theme" class="btn-primary">
+              <span id="txt-btn-confirm-theme">Next: Camera Viewfinder 📸</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2: CAMERA / INPUT CAPTURE PAGE -->
+      <section id="step-capture" class="step-screen hidden">
+        <div class="camera-card">
+          <div class="camera-header">
+            <button id="btn-back-theme" class="btn-text">
+              <span id="txt-btn-back">⬅️ Change Style</span>
+            </button>
+            <span id="selected-theme-badge" class="selected-badge">Spacesuit: THEOS-2 Mission</span>
+          </div>
+
+          <!-- Input Mode Switcher (Webcam vs Upload) -->
+          <div class="input-mode-tabs">
+            <button id="tab-mode-camera" class="mode-tab active" data-mode="camera">
+              <span id="txt-tab-camera">📸 Live Camera</span>
+            </button>
+            <button id="tab-mode-upload" class="mode-tab" data-mode="upload">
+              <span id="txt-tab-upload">📁 Upload Photo</span>
+            </button>
+          </div>
+
+          <!-- Mode 1: Live Webcam Viewfinder -->
+          <div id="wrapper-camera" class="camera-wrapper">
+            <video id="webcam" autoplay playsinline muted></video>
+            <canvas id="photo-canvas" style="display: none;"></canvas>
+            
+            <!-- Viewfinder Crosshairs Overlay -->
+            <div class="viewfinder-guides">
+              <div class="vf-corner tl"></div>
+              <div class="vf-corner tr"></div>
+              <div class="vf-corner bl"></div>
+              <div class="vf-corner br"></div>
+              <div class="vf-oval"></div>
+              <div class="vf-telemetry">
+                <span>ORBIT: 620KM</span>
+                <span>FOV: 78°</span>
+                <span>STABILIZED</span>
+              </div>
+            </div>
+
+            <!-- Full Screen Flash Spiker -->
+            <div id="camera-flash" class="camera-flash hidden"></div>
+
+            <!-- Countdown Overlay -->
+            <div id="countdown-overlay" class="countdown-overlay hidden">
+              <div class="countdown-ring">
+                <span id="countdown-number">3</span>
+              </div>
+            </div>
+
+            <!-- Flip Camera Button (Mobile) -->
+            <button id="btn-flip-camera" class="btn-icon-floating" title="Switch Camera">🔄</button>
+          </div>
+
+          <!-- Mode 2 & 3: File Upload Box -->
+          <div id="wrapper-upload" class="upload-wrapper hidden">
+            <input type="file" id="file-input" accept="image/*" style="display: none;">
+            <div id="upload-dropzone" class="upload-dropzone">
+              <img id="upload-preview" class="upload-preview hidden" alt="Uploaded Preview">
+              <div id="upload-placeholder" class="upload-placeholder-content">
+                <span class="upload-icon">📁</span>
+                <h3 id="txt-upload-title">Click to Select or Drag Photo</h3>
+                <p id="txt-upload-hint">Upload any selfie or portrait photo (JPG, PNG, WebP)</p>
+                <button type="button" id="btn-browse-file" class="btn-secondary btn-sm">
+                  <span id="txt-btn-browse">Browse Files</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons Bar -->
+          <div class="capture-actions">
+            <button id="btn-snap" class="btn-primary btn-capture">
+              <span class="btn-icon">📸</span>
+              <span id="txt-btn-snap">Take Snapshot</span>
+            </button>
+            <button id="btn-generate-uploaded" class="btn-primary btn-capture hidden">
+              <span class="btn-icon">⚡</span>
+              <span id="txt-btn-gen-upload">Generate Mission Avatar</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3: GENERATING / PROCESSING PAGE -->
+      <section id="step-loading" class="step-screen hidden">
+        <div class="loading-box">
+          <div class="spinner-ring">
+            <div class="spinner-core">🛰️</div>
+          </div>
+          <h2 id="txt-loading-title">Transforming Your Mission Portrait...</h2>
+          <p id="loading-subtitle">Synthesizing Neural Style & Telemetry Lighting...</p>
+          
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar-fill"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 4: INTERACTIVE DECORATION & SIGNATURE STUDIO -->
+      <section id="step-decorate" class="step-screen hidden">
+        <div class="decorate-card">
+          <div class="decorate-header">
+            <div class="decorate-title-group">
+              <span class="step-tag" id="txt-step3-tag">STEP 3 OF 4</span>
+              <h2 id="txt-step3-title">Interactive Touch Studio</h2>
+              <p class="decorate-hint" id="txt-step3-hint">Select a mission frame, sign with neon starlight, and add space insignia patches!</p>
+            </div>
+            <div class="decorate-top-actions">
+              <button id="btn-undo-draw" class="btn-secondary btn-sm" title="Undo Last Drawing Stroke">
+                <span id="txt-btn-undo">↩️ Undo</span>
+              </button>
+              <button id="btn-clear-draw" class="btn-text btn-sm" title="Clear all drawings and stickers">
+                <span id="txt-btn-clear">🗑️ Clear</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Main Interactive Stage Canvas Container -->
+          <div class="studio-workspace">
+            <div id="studio-viewport" class="studio-viewport format-1x1">
+              <!-- Base Photo -->
+              <img id="studio-base-photo" src="" alt="Base Portrait" class="studio-base-photo">
+              
+              <!-- Frame Overlay SVG/PNG -->
+              <img id="studio-frame-overlay" src="" alt="Branded Frame" class="studio-frame-overlay hidden">
+              
+              <!-- Interactive Touch Drawing Canvas -->
+              <canvas id="studio-draw-canvas" class="studio-draw-canvas"></canvas>
+
+              <!-- Sticker Layer Container (Interactive Drag/Pinch) -->
+              <div id="studio-stickers-layer" class="studio-stickers-layer"></div>
+            </div>
+
+            <!-- Side Tools Drawer -->
+            <div class="studio-toolbox">
+              
+              <!-- 1. Frame Selector Section -->
+              <div class="tool-section">
+                <label class="tool-label" id="txt-tool-frames">🖼️ MISSION FORMAT & FRAMES</label>
+                <div id="frames-selector" class="frames-selector">
+                  <!-- Injected via JavaScript -->
+                </div>
+              </div>
+
+              <!-- 2. Drawing Tools Section -->
+              <div class="tool-section">
+                <div class="tool-label-row">
+                  <label class="tool-label" id="txt-tool-pen">✍️ SIGNATURE & WISH PEN</label>
+                  <span id="brush-mode-badge" class="badge-mini">Neon Pen</span>
+                </div>
+                
+                <div class="brush-palette">
+                  <button class="color-dot active" data-color="#00F0FF" style="background: #00F0FF; box-shadow: 0 0 10px #00F0FF;" title="Cyber Cyan"></button>
+                  <button class="color-dot" data-color="#FFFFFF" style="background: #FFFFFF; box-shadow: 0 0 8px rgba(255,255,255,0.6);" title="Pure White"></button>
+                  <button class="color-dot" data-color="#F1C40F" style="background: #F1C40F; box-shadow: 0 0 8px #F1C40F;" title="Imperial Gold"></button>
+                  <button class="color-dot" data-color="#38BDF8" style="background: #38BDF8; box-shadow: 0 0 8px #38BDF8;" title="Orbital Blue"></button>
+                  <button class="color-dot" data-color="#EC4899" style="background: #EC4899; box-shadow: 0 0 8px #EC4899;" title="Plasma Pink"></button>
+                  <button id="btn-tool-eraser" class="tool-icon-btn" title="Eraser">🧹</button>
+                </div>
+
+                <div class="brush-size-row">
+                  <span class="slider-icon">✏️</span>
+                  <input type="range" id="brush-size-slider" min="2" max="24" value="6" class="range-slider">
+                  <span id="brush-size-display" class="size-val">6px</span>
+                </div>
+              </div>
+
+              <!-- 3. Sticker Drawer Section -->
+              <div class="tool-section">
+                <label class="tool-label" id="txt-tool-stickers">✨ DIGITAL STICKERS & PROPS</label>
+                <div id="stickers-tray" class="stickers-tray">
+                  <!-- Injected via JavaScript -->
+                </div>
+              </div>
+
+              <!-- Finish Decoration Button -->
+              <div class="studio-confirm-bar">
+                <button id="btn-finish-decorate" class="btn-primary btn-finish">
+                  <span id="txt-btn-finish">Complete & Download 🚀</span>
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5: RESULT & QR CODE DOWNLOAD PAGE -->
+      <section id="step-result" class="step-screen hidden">
+        <div class="result-card">
+          <div class="result-image-box">
+            <div class="photo-frame-container">
+              <img id="result-photo" src="" alt="Final Decorated AI Portrait">
+            </div>
+          </div>
+          
+          <div class="qr-box">
+            <div class="qr-badge-header">
+              <span class="pulse-dot"></span>
+              <span id="txt-result-badge">MISSION SOUVENIR READY</span>
+            </div>
+            <h3 id="txt-result-title">Scan or Save to Device</h3>
+            <div class="qr-code-wrapper">
+              <img id="qr-code" src="" alt="Download QR Code">
+            </div>
+            <p class="qr-hint" id="txt-result-hint">Scan with your smartphone camera to save the high-res keepsake directly.</p>
+            
+            <div class="result-buttons">
+              <a id="btn-download" class="btn-primary btn-download" download="gistda_tsx2026_avatar.jpg" target="_blank">
+                <span id="txt-btn-download">⬇️ Save to Device</span>
+              </a>
+              <button id="btn-print" class="btn-secondary">
+                <span id="txt-btn-print">🖨️ Print Keepsake</span>
+              </button>
+              <button id="btn-reset" class="btn-text-btn">
+                <span id="txt-btn-next">✨ Next Guest</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer HUD -->
+    <footer class="booth-footer">
+      <div class="footer-powered">
+        <img src="logo/HAMO White.png" alt="HAMO" class="footer-logo">
+        <span>Powered by HAMO Event Lab (Sinjanakom Corporation Co., Ltd.)</span>
+      </div>
+      <div class="footer-venue">
+        <span>THAILAND SPACE EXPO 2026 • TRUE ICON HALL (7TH FL, ICONSIAM)</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

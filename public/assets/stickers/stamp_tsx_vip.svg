@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="vipGold" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="50%" stop-color="#EAB308"/>
+      <stop offset="100%" stop-color="#854D0E"/>
+    </radialGradient>
+    <filter id="goldGlow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#EAB308" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  <!-- Hexagonal VIP Plaque -->
+  <polygon points="100,15 180,55 180,145 100,185 20,145 20,55" fill="#0A0F1D" stroke="url(#vipGold)" stroke-width="4" filter="url(#goldGlow)"/>
+  <polygon points="100,25 170,60 170,140 100,175 30,140 30,60" fill="none" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Star Icon -->
+  <path d="M 100 45 L 104 57 L 117 57 L 106 65 L 110 77 L 100 69 L 90 77 L 94 65 L 83 57 L 96 57 Z" fill="url(#vipGold)"/>
+
+  <!-- VIP Title -->
+  <text x="100" y="105" font-family="'Geist', sans-serif" font-size="28" font-weight="900" fill="url(#vipGold)" text-anchor="middle" letter-spacing="4">VIP</text>
+  <text x="100" y="124" font-family="'Geist Mono', monospace" font-size="9" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">DELEGATE PASS</text>
+  
+  <rect x="60" y="132" width="80" height="1" fill="#EAB308"/>
+  <text x="100" y="148" font-family="'Geist Mono', monospace" font-size="7.5" font-weight="600" fill="#94A3B8" text-anchor="middle" letter-spacing="2">TSX 2026 • GISTDA</text>
+</svg>

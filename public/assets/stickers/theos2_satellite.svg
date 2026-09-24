@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" width="240" height="160">
+  <defs>
+    <filter id="satGlow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#00F0FF" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <!-- Solar Panels Left -->
+  <g filter="url(#satGlow)">
+    <rect x="15" y="55" width="65" height="50" rx="3" fill="#0284C7" stroke="#38BDF8" stroke-width="2"/>
+    <line x1="36" y1="55" x2="36" y2="105" stroke="#00F0FF" stroke-width="1.5"/>
+    <line x1="58" y1="55" x2="58" y2="105" stroke="#00F0FF" stroke-width="1.5"/>
+    <line x1="15" y1="80" x2="80" y2="80" stroke="#00F0FF" stroke-width="1.5"/>
+    <!-- Left Arm -->
+    <rect x="80" y="76" width="15" height="8" fill="#94A3B8"/>
+
+    <!-- Central Body -->
+    <rect x="95" y="45" width="50" height="70" rx="6" fill="#0F172A" stroke="#FFFFFF" stroke-width="2.5"/>
+    <!-- Optical Lens Payload -->
+    <circle cx="120" cy="75" r="14" fill="#000000" stroke="#00F0FF" stroke-width="2"/>
+    <circle cx="120" cy="75" r="8" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5"/>
+    <circle cx="122" cy="73" r="2.5" fill="#FFFFFF"/>
+    <!-- Gold Foil Details -->
+    <rect x="100" y="100" width="40" height="10" rx="2" fill="#F59E0B"/>
+
+    <!-- Right Arm -->
+    <rect x="145" y="76" width="15" height="8" fill="#94A3B8"/>
+    <!-- Solar Panels Right -->
+    <rect x="160" y="55" width="65" height="50" rx="3" fill="#0284C7" stroke="#38BDF8" stroke-width="2"/>
+    <line x1="181" y1="55" x2="181" y2="105" stroke="#00F0FF" stroke-width="1.5"/>
+    <line x1="203" y1="55" x2="203" y2="105" stroke="#00F0FF" stroke-width="1.5"/>
+    <line x1="160" y1="80" x2="225" y2="80" stroke="#00F0FF" stroke-width="1.5"/>
+    
+    <!-- Dish Antenna Top -->
+    <path d="M 110 45 Q 120 28 130 45" stroke="#38BDF8" stroke-width="2" fill="none"/>
+    <line x1="120" y1="36" x2="120" y2="24" stroke="#00F0FF" stroke-width="2"/>
+    <circle cx="120" cy="23" r="2.5" fill="#00F0FF"/>
+  </g>
+</svg>

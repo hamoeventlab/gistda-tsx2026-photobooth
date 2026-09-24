@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 60" width="160" height="60">
+  <defs>
+    <linearGradient id="cyberLens" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="50%" stop-color="#7000FF"/>
+      <stop offset="100%" stop-color="#FF007A"/>
+    </linearGradient>
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#00F0FF" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+  <!-- Frame bridge & sides -->
+  <path d="M 5 22 L 30 18 L 70 20 L 80 25 L 90 20 L 130 18 L 155 22 L 150 28 L 135 24 L 95 26 L 80 32 L 65 26 L 25 24 L 10 28 Z" fill="#111115" stroke="#00F0FF" stroke-width="1.5"/>
+  <!-- Left Lens -->
+  <polygon points="20,24 72,25 66,48 26,45" fill="url(#cyberLens)" opacity="0.9" filter="url(#neonGlow)"/>
+  <!-- Right Lens -->
+  <polygon points="88,25 140,24 134,45 94,48" fill="url(#cyberLens)" opacity="0.9" filter="url(#neonGlow)"/>
+  <!-- Reflections -->
+  <line x1="28" y1="28" x2="62" y2="29" stroke="#FFF" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="96" y1="29" x2="130" y2="28" stroke="#FFF" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+</svg>

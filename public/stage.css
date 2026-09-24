@@ -1,0 +1,460 @@
+/* ==========================================================================
+   THAILAND SPACE EXPO 2026 (TSX 2026) — LIVE CELEBRATION WALL STYLES
+   Signage Loop Design: Calm, elegant, aerospace high-contrast, stage-safe.
+   ========================================================================== */
+
+:root {
+  --bg-stage: #030712;
+  --bg-card: rgba(11, 17, 33, 0.82);
+  --border-card: rgba(56, 189, 248, 0.25);
+  --border-accent: #00F0FF;
+  --text-main: #FFFFFF;
+  --text-sub: #94A3B8;
+  --text-muted: #64748B;
+  --accent-cyan: #00F0FF;
+  --accent-blue: #2563EB;
+  --accent-gold: #F1C40F;
+  --glow-spotlight: rgba(0, 240, 255, 0.28);
+  --font-sans: 'Geist', 'Inter', -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --font-thai: 'Prompt', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-stage);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  background-image: url('bg/BG-GISTDA-4K.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+/* Aerospace Halo Backlight */
+.stage-halo-glow {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 70vh;
+  background: radial-gradient(circle at 50% 30%, rgba(34, 211, 238, 0.22) 0%, rgba(59, 130, 246, 0.18) 40%, transparent 75%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stage-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 28px 48px;
+  justify-content: space-between;
+}
+
+/* Header */
+.stage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  padding-bottom: 18px;
+  backdrop-filter: blur(12px);
+}
+
+.stage-brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stage-logo {
+  height: 52px;
+  width: auto;
+  filter: drop-shadow(0 0 16px rgba(0, 240, 255, 0.45));
+}
+
+.stage-divider {
+  width: 1px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.stage-supertitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  color: var(--accent-cyan);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.stage-main-title {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #FFFFFF;
+}
+
+.stage-telemetry-cluster {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.telemetry-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.telemetry-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #64748B;
+  letter-spacing: 1px;
+}
+
+.telemetry-val {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: #38BDF8;
+}
+
+.stage-live-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 8px 16px;
+  border-radius: 9999px;
+}
+
+.live-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 10px #10B981;
+  animation: stagePulse 2s infinite;
+}
+
+.live-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #34D399;
+}
+
+/* Main Area */
+.stage-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 16px 0;
+  gap: 20px;
+}
+
+/* Spotlight Hero Card */
+.spotlight-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.spotlight-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-card);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 0 60px var(--glow-spotlight), 0 30px 60px rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(28px);
+  max-width: 860px;
+  width: 100%;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease;
+}
+
+.spotlight-card.fade-out {
+  opacity: 0;
+  transform: scale(0.96) translateY(8px);
+}
+
+.spotlight-card.fade-in {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.card-inner {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.stage-photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid var(--border-accent);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.35);
+  background: #000000;
+}
+
+.stage-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stage-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: #00F0FF;
+  border-style: solid;
+  border-width: 0;
+  filter: drop-shadow(0 0 6px #00F0FF);
+}
+
+.stage-corner.tl { top: 12px; left: 12px; border-top-width: 3px; border-left-width: 3px; }
+.stage-corner.tr { top: 12px; right: 12px; border-top-width: 3px; border-right-width: 3px; }
+.stage-corner.bl { bottom: 12px; left: 12px; border-bottom-width: 3px; border-left-width: 3px; }
+.stage-corner.br { bottom: 12px; right: 12px; border-bottom-width: 3px; border-right-width: 3px; }
+
+.stage-telemetry-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(3, 7, 18, 0.75);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 3px 12px;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #38BDF8;
+  backdrop-filter: blur(6px);
+}
+
+.stage-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.meta-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stage-theme-tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 800;
+  color: #030712;
+  background: var(--accent-cyan);
+  padding: 4px 14px;
+  border-radius: 9999px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  box-shadow: 0 0 14px var(--accent-cyan);
+}
+
+.stage-time-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.stage-guest-name {
+  font-size: 34px;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: -0.5px;
+}
+
+.stage-event-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: #38BDF8;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+/* Recent Photos Ribbon */
+.recent-ribbon-bar {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ribbon-label {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  padding: 0 6px;
+}
+
+.ribbon-track {
+  display: flex;
+  gap: 14px;
+  overflow-x: hidden;
+  padding: 6px 2px;
+}
+
+.ribbon-thumb-card {
+  flex-shrink: 0;
+  width: 84px;
+  height: 84px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  background: #000000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ribbon-thumb-card:hover {
+  transform: translateY(-4px) scale(1.05);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 16px var(--accent-cyan);
+}
+
+.ribbon-thumb-card.active {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 18px var(--accent-cyan);
+}
+
+.ribbon-thumb-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Footer CTA */
+.stage-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(11, 17, 33, 0.85);
+  border: 1px solid var(--border-card);
+  padding: 16px 28px;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+}
+
+.cta-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cta-icon {
+  font-size: 32px;
+  filter: drop-shadow(0 0 10px #00F0FF);
+}
+
+.cta-text h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.cta-text p {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-top: 2px;
+}
+
+.cta-right-group {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.cta-powered {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #94A3B8;
+}
+
+.cta-hamo-logo {
+  height: 18px;
+  width: auto;
+}
+
+.cta-qr-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.7);
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-card);
+}
+
+.qr-label {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.qr-label strong {
+  font-size: 11px;
+  color: #00F0FF;
+}
+
+.stage-qr-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background: #FFFFFF;
+  padding: 2px;
+}
+
+@keyframes stagePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1800" width="600" height="1800">
+  <defs>
+    <filter id="stripShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <!-- Background Matting -->
+  <rect x="0" y="0" width="600" height="1800" fill="#070B14"/>
+  
+  <!-- Top Slot 1 Cutout / Border (Cutout at Y=50, H=680) -->
+  <rect x="40" y="50" width="520" height="680" rx="12" fill="none" stroke="#1E293B" stroke-width="2"/>
+  <rect x="44" y="54" width="512" height="672" rx="10" fill="none" stroke="#00F0FF" stroke-opacity="0.3" stroke-width="1.5"/>
+  
+  <!-- Bottom Slot 2 Cutout / Border (Cutout at Y=770, H=680) -->
+  <rect x="40" y="770" width="520" height="680" rx="12" fill="none" stroke="#1E293B" stroke-width="2"/>
+  <rect x="44" y="774" width="512" height="672" rx="10" fill="none" stroke="#00F0FF" stroke-opacity="0.3" stroke-width="1.5"/>
+
+  <!-- Center divider telemetry line -->
+  <line x1="40" y1="750" x2="560" y2="750" stroke="#00F0FF" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <!-- Footer Event Branding -->
+  <rect x="40" y="1480" width="520" height="270" rx="16" fill="#0A0F1D" stroke="#1E293B" stroke-width="1.5"/>
+  
+  <circle cx="85" cy="1546" r="22" fill="#0284C7"/>
+  <path d="M 85 1530 L 97 1556 L 73 1556 Z" fill="#00F0FF"/>
+  
+  <text x="122" y="1542" font-family="'Geist', sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" letter-spacing="2">GISTDA • TSX 2026</text>
+  <text x="122" y="1562" font-family="'Prompt', sans-serif" font-size="12" font-weight="500" fill="#94A3B8">สทอภ. • อวาตาร์ภารกิจอวกาศ</text>
+
+  <line x1="60" y1="1598" x2="540" y2="1598" stroke="#1E293B" stroke-width="1.5"/>
+
+  <text x="60" y="1636" font-family="'Geist Mono', monospace" font-size="12" font-weight="700" fill="#00F0FF" letter-spacing="2">MISSION PHOTO STRIP</text>
+  <text x="540" y="1636" font-family="'Geist Mono', monospace" font-size="12" font-weight="600" fill="#64748B" text-anchor="end">2 × 6 INCH</text>
+  
+  <text x="60" y="1685" font-family="'Geist', 'Prompt', sans-serif" font-size="14" font-weight="700" fill="#E2E8F0">TRUE ICON HALL • BANGKOK</text>
+  <text x="540" y="1685" font-family="'Geist Mono', monospace" font-size="12" font-weight="600" fill="#38BDF8" text-anchor="end">#TSX2026</text>
+  <text x="60" y="1725" font-family="'Geist Mono', monospace" font-size="10" font-weight="500" fill="#64748B">POWERED BY HAMO EVENT LAB</text>
+</svg>

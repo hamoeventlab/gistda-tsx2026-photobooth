@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+package-lock.json.bak
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# Vercel Build Artifacts
+.vercel
+
+# Temporary & Output photos (keep directory via .gitkeep)
+public/outputs/*
+!public/outputs/.gitkeep
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+.idea/
+.vscode/
