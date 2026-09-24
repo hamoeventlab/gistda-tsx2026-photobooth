@@ -212,35 +212,23 @@ app.post('/api/generate', async (req, res) => {
     let cdnUrl = null;
     let chosenThemeName = '';
 
-    if (isCostume || costumeId) {
-      // Fixed costume / template face swap mode
-      const costume = (config.costume_templates || []).find((c) => c.id === costumeId) || config.costume_templates?.[0];
-      chosenThemeName = costume?.name || 'Costume Template';
-      console.log(`[Server] Generating fixed costume portrait: ${chosenThemeName}`);
+    const costume = (config.costume_templates || []).find((c) => c.id === costumeId) || config.costume_templates?.[0] || {
+      id: 'theos2_astronaut',
+      name: 'THEOS-2 Mission Spacesuit',
+      template_img: '/assets/costumes/astronaut.jpg',
+    };
+    chosenThemeName = costume?.name || 'THEOS-2 Mission Spacesuit';
+    console.log(`[Server] Generating seamless mission portrait face swap: ${chosenThemeName}`);
 
-      const result = await engineManager.generate({
-        imageBuffer,
-        costumeId: costume?.id || 'astronaut',
-        templateImgPath: costume?.template_img || '/assets/costumes/astronaut.jpg',
-        isCostume: true,
-      });
-      rawBuffer = result.buffer;
-      cdnUrl = result.cdnUrl;
-    } else {
-      // Generative prompt mode
-      const preset = config.presets.find((p) => p.id === presetId) || config.presets[0];
-      chosenThemeName = preset?.name || 'AI Style';
-      const finalPrompt = customPrompt || preset.prompt;
-
-      console.log(`[Server] Generating generative AI portrait: ${chosenThemeName}`);
-      const result = await engineManager.generate({
-        imageBuffer,
-        prompt: finalPrompt,
-        presetId: preset.id,
-      });
-      rawBuffer = result.buffer;
-      cdnUrl = result.cdnUrl;
-    }
+    const result = await engineManager.generate({
+      imageBuffer,
+      costumeId: costume.id,
+      templateImgPath: costume.template_img || '/assets/costumes/astronaut.jpg',
+      format: req.body.format || '1:1',
+      isCostume: true,
+    });
+    rawBuffer = result.buffer;
+    cdnUrl = result.cdnUrl;
 
     // Resize and format output via Sharp
     let processedBuffer = rawBuffer;

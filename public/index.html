@@ -60,34 +60,66 @@
     <!-- Main Workspace -->
     <main class="main-content">
       
-      <!-- STEP 1: THEME & COSTUME SELECTION -->
+      <!-- STEP 1: THEME PREVIEW & PHOTO SIZE SELECTION -->
       <section id="step-theme" class="step-screen active">
-        <div class="theme-select-box">
+        <div class="theme-select-box welcome-box">
           <div class="step-title-area">
-            <span class="step-tag" id="txt-step1-tag">STEP 1 OF 4</span>
-            <h2 id="txt-step1-title">Select Your Mission Style</h2>
-            <p class="step-desc" id="txt-step1-desc">Official THEOS-2 accredited deep space mission EVA suit:</p>
-            
-            <!-- Category Switcher Tabs -->
-            <div class="category-tabs">
-              <button id="tab-cat-costume" class="cat-tab active" data-cat="costume">
-                <span class="cat-icon">👨‍🚀</span>
-                <span id="txt-tab-costume">THEOS-2 Astronaut Suit (Face-Swap)</span>
-              </button>
-              <button id="tab-cat-generative" class="cat-tab" data-cat="generative">
-                <span class="cat-icon">⚡</span>
-                <span id="txt-tab-generative">Orbital Spacesuit (Generative AI)</span>
-              </button>
+            <span class="step-tag" id="txt-step1-tag">STEP 1 OF 4 • MISSION SETUP</span>
+            <h2 id="txt-step1-title">THEOS-2 Mission Avatar Studio</h2>
+            <p class="step-desc" id="txt-step1-desc">Official GISTDA Deep Space EVA Suit • Select your photo size and tap to start:</p>
+          </div>
+
+          <!-- Hero Theme Showcase (1 Theme Only) -->
+          <div class="theme-hero-card">
+            <div class="theme-hero-img-wrap">
+              <img src="/assets/costumes/astronaut.jpg" alt="THEOS-2 Mission Spacesuit" class="theme-hero-img">
+              <div class="theme-hero-badge">
+                <span class="pulse-dot"></span>
+                <span>OFFICIAL GISTDA MISSION</span>
+              </div>
+            </div>
+            <div class="theme-hero-info">
+              <div class="theme-hero-tag-row">
+                <span class="badge-mini">THEOS-2 ACCREDITED</span>
+                <span class="badge-mini">SEAMLESS FACE-SWAP</span>
+              </div>
+              <h3 id="txt-hero-theme-title">THEOS-2 Mission Spacesuit</h3>
+              <p id="txt-hero-theme-desc" class="theme-hero-desc">
+                High-altitude pressurized EVA suit equipped with THEOS-2 mission badge, Thai national flag patch, and cybernetic HUD helmet.
+              </p>
+              <div class="theme-hero-features">
+                <div class="hero-feat-item">
+                  <span class="feat-icon">⚡</span>
+                  <span id="txt-feat-instant">Instant Face Fit</span>
+                </div>
+                <div class="hero-feat-item">
+                  <span class="feat-icon">🎯</span>
+                  <span id="txt-feat-frame">Live Border Viewfinder</span>
+                </div>
+                <div class="hero-feat-item">
+                  <span class="feat-icon">🖨️</span>
+                  <span id="txt-feat-print">Dye-Sub Keepsake Ready</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div id="presets-grid" class="presets-grid">
-            <!-- Theme cards or costume cards injected dynamically -->
+          <!-- Photo Size & Format Selection Area -->
+          <div class="format-selection-area">
+            <div class="format-header-row">
+              <label class="tool-label" id="txt-format-select-title">📐 SELECT PHOTO SIZE & BORDER</label>
+              <span id="txt-format-select-hint" class="format-hint">Viewfinder will adapt to this exact border</span>
+            </div>
+
+            <div id="format-options-grid" class="format-options-grid">
+              <!-- Dynamically populated from config.frame_templates -->
+            </div>
           </div>
 
           <div class="action-footer">
-            <button id="btn-confirm-theme" class="btn-primary">
-              <span id="txt-btn-confirm-theme">Next: Camera Viewfinder 📸</span>
+            <button id="btn-confirm-theme" class="btn-primary btn-start-mission">
+              <span class="rocket-icon">🚀</span>
+              <span id="txt-btn-confirm-theme">Start Live Camera 📸</span>
             </button>
           </div>
         </div>
@@ -98,9 +130,14 @@
         <div class="camera-card">
           <div class="camera-header">
             <button id="btn-back-theme" class="btn-text">
-              <span id="txt-btn-back">⬅️ Change Style</span>
+              <span id="txt-btn-back">⬅️ Change Size</span>
             </button>
-            <span id="selected-theme-badge" class="selected-badge">Spacesuit: THEOS-2 Mission</span>
+            <div class="camera-header-center">
+              <span id="selected-theme-badge" class="selected-badge">Spacesuit: THEOS-2 Mission</span>
+              <span id="camera-format-badge" class="format-active-badge">4:6 Keepsake (2:3)</span>
+            </div>
+            <!-- Quick format toggle pills in header -->
+            <div class="quick-format-pills" id="quick-format-pills"></div>
           </div>
 
           <!-- Input Mode Switcher (Webcam vs Upload) -->
@@ -113,21 +150,32 @@
             </button>
           </div>
 
-          <!-- Mode 1: Live Webcam Viewfinder -->
-          <div id="wrapper-camera" class="camera-wrapper">
+          <!-- Mode 1: Live Webcam Viewfinder with Live Border Overlay -->
+          <div id="wrapper-camera" class="camera-wrapper format-4x6">
             <video id="webcam" autoplay playsinline muted></video>
             <canvas id="photo-canvas" style="display: none;"></canvas>
             
+            <!-- Live Border / Frame SVG Overlay on Camera -->
+            <img id="camera-frame-overlay" class="camera-frame-overlay" src="/assets/frames/frame_portrait_4x6.svg" alt="Active Frame">
+
             <!-- Viewfinder Crosshairs Overlay -->
             <div class="viewfinder-guides">
               <div class="vf-corner tl"></div>
               <div class="vf-corner tr"></div>
               <div class="vf-corner bl"></div>
               <div class="vf-corner br"></div>
-              <div class="vf-oval"></div>
+              
+              <!-- Helmet Face Alignment Zone -->
+              <div class="vf-oval-container">
+                <div class="vf-oval"></div>
+                <div class="vf-face-hint">
+                  <span id="txt-vf-face-guide">ALIGN FACE IN HELMET</span>
+                </div>
+              </div>
+
               <div class="vf-telemetry">
                 <span>ORBIT: 620KM</span>
-                <span>FOV: 78°</span>
+                <span id="vf-telemetry-format">FORMAT: 4:6 KEEPSAKE</span>
                 <span>STABILIZED</span>
               </div>
             </div>
@@ -147,7 +195,7 @@
           </div>
 
           <!-- Mode 2 & 3: File Upload Box -->
-          <div id="wrapper-upload" class="upload-wrapper hidden">
+          <div id="wrapper-upload" class="upload-wrapper hidden format-4x6">
             <input type="file" id="file-input" accept="image/*" style="display: none;">
             <div id="upload-dropzone" class="upload-dropzone">
               <img id="upload-preview" class="upload-preview hidden" alt="Uploaded Preview">

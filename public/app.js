@@ -1,11 +1,13 @@
 /**
  * THAILAND SPACE EXPO 2026 (TSX 2026) — GISTDA AI MISSION STUDIO
  * Engineered by HAMO Event Lab (Sinjanakom Corporation Co., Ltd.)
+ * - 1 Official Theme: THEOS-2 Mission Spacesuit (Seamless Neural Face-Swap)
+ * - Photo Format Selection FIRST (4:6 Postcard, 1:1 Square, 2:6 Photostrip)
+ * - Live Camera Viewfinder with matching Aspect Ratio & Real-time Frame Border Overlay
+ * - Interactive Touch Studio (Drawing, Signature, Stamps, Stickers)
+ * - High-speed Local Composite & Dye-sub Printer Spooler Hook
  * - Bilingual Support (Thai Default / English Toggle)
- * - Dual Engine Category: Generative AI Space Styles + Face-Swap Mission Costumes
- * - Multi-touch Interactive Touch Studio (Mission Frames, Stickers, Neon Pen)
  * - Live Celebration Wall Broadcast (/stage.html via SSE)
- * - Mobile QR Delivery & Thermal Dye-Sub Print Hook
  */
 
 const TRANSLATIONS = {
@@ -14,13 +16,18 @@ const TRANSLATIONS = {
     header_title: 'THAILAND SPACE EXPO 2026',
     header_sub: 'AI MISSION AVATAR STUDIO',
     btn_stage: '📺 จอแสดงผล Stage',
-    step1_tag: 'ขั้นตอนที่ 1 จาก 4',
-    step1_title: 'เลือกสไตล์ภาพถ่ายภารกิจของคุณ',
-    step1_desc: 'เลือกสไตล์ Generative AI อวกาศ หรือชุดนักบินอวกาศและชุดเกียรติยศ:',
-    tab_generative: 'สไตล์ Generative AI อวกาศ',
-    tab_costume: 'ชุดนักบิน & ชุดเกียรติยศ (Face-Swap)',
-    btn_confirm_style: 'ถัดไป: เข้าสู่กล้องถ่ายภาพ 📸',
-    btn_back_style: '⬅️ เปลี่ยนสไตล์',
+    step1_tag: 'ขั้นตอนที่ 1 จาก 4 • เตรียมภารกิจ',
+    step1_title: 'THEOS-2 Mission Avatar Studio',
+    step1_desc: 'ชุดนักบินอวกาศภารกิจทางการ สทอภ. • เลือกขนาดรูปถ่ายและแตะเพื่อเริ่มถ่ายภาพ:',
+    hero_theme_title: 'ชุดนักบินอวกาศภารกิจ THEOS-2',
+    hero_theme_desc: 'ชุดปฏิบัติการอวกาศสภาวะสุญญากาศทางการ พร้อมตราภารกิจ THEOS-2 ธงชาติไทย และหน้ากากตรวจจับข้อมูล HUD สวมใส่ใบหน้าของคุณแบบเรียลไทม์',
+    feat_instant: 'สวมใส่ชุดทันใจ',
+    feat_frame: 'พรีวิวกรอบภาพสด',
+    feat_print: 'พร้อมพิมพ์เป็นที่ระลึก',
+    format_select_title: '📐 เลือกขนาดรูปถ่ายและกรอบ',
+    format_select_hint: 'ช่องมองกล้องจะปรับสัดส่วนตามกรอบที่คุณเลือก',
+    btn_confirm_style: 'เริ่มถ่ายภาพสด 📸',
+    btn_back_style: '⬅️ เปลี่ยนขนาด',
     style_prefix: 'สไตล์',
     costume_prefix: 'ชุด',
     tab_camera: '📸 ถ่ายภาพสด',
@@ -30,11 +37,12 @@ const TRANSLATIONS = {
     btn_browse: 'เลือกไฟล์ในเครื่อง',
     btn_snap: 'ถ่ายภาพ',
     btn_gen_upload: 'สร้างอวาตาร์ภารกิจ',
-    loading_title: 'กำลังสังเคราะห์อวาตาร์ภารกิจอวกาศ...',
-    loading_sub: 'ประมวลผลแสงและเอกลักษณ์บุคคลผ่านระบบ AI...',
+    vf_face_guide: 'จัดตำแหน่งใบหน้าให้อยู่ในกรอบหมวก',
+    loading_title: 'กำลังสังเคราะห์อวาตาร์ภารกิจ...',
+    loading_sub: 'ผสานใบหน้าเข้ากับชุดนักบินอวกาศ THEOS-2 อย่างแนบเนียน...',
     step3_tag: 'ขั้นตอนที่ 3 จาก 4',
     step3_title: 'สตูดิโอตกแต่งภาพดิจิทัล',
-    step3_hint: 'เลือกกรอบตราสัญลักษณ์ภารกิจ, เขียนคำอวยพรด้วยปากกานีออน, และติดตราประทับเกียรติยศ!',
+    step3_hint: 'เซ็นชื่อด้วยปากกานีออน ติดตราสัญลักษณ์ภารกิจ และปรับแต่งกรอบภาพได้ตามต้องการ',
     btn_undo: '↩️ ย้อนกลับ',
     btn_clear: '🗑️ ล้างทั้งหมด',
     tool_frames: '🖼️ กรอบตราสัญลักษณ์ภารกิจ',
@@ -60,15 +68,20 @@ const TRANSLATIONS = {
     header_title: 'THAILAND SPACE EXPO 2026',
     header_sub: 'AI MISSION AVATAR STUDIO',
     btn_stage: '📺 Stage Screen',
-    step1_tag: 'STEP 1 OF 4',
-    step1_title: 'Select Your Mission Style',
-    step1_desc: 'Choose a generative space style or an accredited astronaut costume:',
-    tab_generative: 'Generative Space Styles',
-    tab_costume: 'Mission Costumes (Face-Swap)',
-    btn_confirm_style: 'Next: Camera Viewfinder 📸',
-    btn_back_style: '⬅️ Change Style',
+    step1_tag: 'STEP 1 OF 4 • MISSION SETUP',
+    step1_title: 'THEOS-2 Mission Avatar Studio',
+    step1_desc: 'Official GISTDA Deep Space EVA Suit • Select your photo size and tap to start:',
+    hero_theme_title: 'THEOS-2 Mission Spacesuit',
+    hero_theme_desc: 'High-altitude pressurized EVA suit equipped with THEOS-2 mission badge, Thai national flag patch, and cybernetic HUD helmet. Seamless real-time face integration.',
+    feat_instant: 'Instant Face Fit',
+    feat_frame: 'Live Border Viewfinder',
+    feat_print: 'Dye-Sub Keepsake Ready',
+    format_select_title: '📐 SELECT PHOTO SIZE & BORDER',
+    format_select_hint: 'Viewfinder will adapt to this exact border',
+    btn_confirm_style: 'Start Live Camera 📸',
+    btn_back_style: '⬅️ Change Size',
     style_prefix: 'Style',
-    costume_prefix: 'Costume',
+    costume_prefix: 'Spacesuit',
     tab_camera: '📸 Live Camera',
     tab_upload: '📁 Upload Photo',
     upload_title: 'Click to Select or Drag Photo',
@@ -76,11 +89,12 @@ const TRANSLATIONS = {
     btn_browse: 'Browse Files',
     btn_snap: 'Take Snapshot',
     btn_gen_upload: 'Generate Mission Avatar',
-    loading_title: 'Transforming Your Mission Portrait...',
-    loading_sub: 'Synthesizing Neural Style & Telemetry Lighting...',
+    vf_face_guide: 'ALIGN FACE IN HELMET',
+    loading_title: 'Synthesizing Mission Avatar...',
+    loading_sub: 'Seamlessly aligning face into THEOS-2 Spacesuit...',
     step3_tag: 'STEP 3 OF 4',
     step3_title: 'Interactive Touch Studio',
-    step3_hint: 'Select a mission frame, sign with neon starlight, and add space insignia patches!',
+    step3_hint: 'Sign with neon starlight, place mission patches, and finalize your keepsake border!',
     btn_undo: '↩️ Undo',
     btn_clear: '🗑️ Clear',
     tool_frames: '🖼️ MISSION FORMAT & FRAMES',
@@ -106,11 +120,13 @@ const TRANSLATIONS = {
 class PhotoBoothApp {
   constructor() {
     this.lang = 'en';
-    this.selectedCategory = 'costume'; // 'costume' | 'generative' (Spacesuit default)
-    this.selectedPresetId = null;
-    this.selectedPresetName = '';
-    this.selectedCostumeId = null;
-    this.selectedCostumeName = '';
+    this.selectedCostumeId = 'theos2_astronaut';
+    this.selectedCostumeName = 'THEOS-2 Mission Spacesuit';
+
+    // Format & Border State
+    this.selectedFrameId = 'portrait_4x6';
+    this.selectedFrameSvg = '/assets/frames/frame_portrait_4x6.svg';
+    this.selectedFrameAspectRatio = '2:3';
 
     this.config = null;
     this.stream = null;
@@ -121,9 +137,6 @@ class PhotoBoothApp {
     this.audioCtx = null;
 
     // Decoration Studio State
-    this.selectedFrameId = 'none';
-    this.selectedFrameSvg = null;
-    this.selectedFrameAspectRatio = '1:1';
     this.brushColor = '#00F0FF';
     this.brushSize = 6;
     this.isEraser = false;
@@ -137,7 +150,10 @@ class PhotoBoothApp {
     this.videoEl = document.getElementById('webcam');
     this.canvasEl = document.getElementById('photo-canvas');
     this.cameraFlash = document.getElementById('camera-flash');
-    this.presetsGrid = document.getElementById('presets-grid');
+    this.cameraFrameOverlay = document.getElementById('camera-frame-overlay');
+    this.cameraFormatBadge = document.getElementById('camera-format-badge');
+    this.quickFormatPills = document.getElementById('quick-format-pills');
+    this.formatOptionsGrid = document.getElementById('format-options-grid');
     this.btnConfirmTheme = document.getElementById('btn-confirm-theme');
     this.btnBackTheme = document.getElementById('btn-back-theme');
     this.selectedThemeBadge = document.getElementById('selected-theme-badge');
@@ -152,10 +168,6 @@ class PhotoBoothApp {
     // Language buttons
     this.btnLangTh = document.getElementById('btn-lang-th');
     this.btnLangEn = document.getElementById('btn-lang-en');
-
-    // Category Tabs
-    this.tabCatGenerative = document.getElementById('tab-cat-generative');
-    this.tabCatCostume = document.getElementById('tab-cat-costume');
 
     // Mode Switcher Elements
     this.tabModeCamera = document.getElementById('tab-mode-camera');
@@ -241,10 +253,10 @@ class PhotoBoothApp {
     if (this.btnLangEn) this.btnLangEn.classList.toggle('active', lang === 'en');
     this.applyLanguage();
     if (this.config) {
-      this.renderCategoryCards();
+      this.renderFormatCards();
       this.renderFramesSelector();
       this.renderStickersTray();
-      this.updateThemeBadge();
+      this.updateFormatBadge();
     }
   }
 
@@ -265,8 +277,13 @@ class PhotoBoothApp {
     setText('txt-step1-tag', t.step1_tag);
     setText('txt-step1-title', t.step1_title);
     setText('txt-step1-desc', t.step1_desc);
-    setText('txt-tab-generative', t.tab_generative);
-    setText('txt-tab-costume', t.tab_costume);
+    setText('txt-hero-theme-title', t.hero_theme_title);
+    setText('txt-hero-theme-desc', t.hero_theme_desc);
+    setText('txt-feat-instant', t.feat_instant);
+    setText('txt-feat-frame', t.feat_frame);
+    setText('txt-feat-print', t.feat_print);
+    setText('txt-format-select-title', t.format_select_title);
+    setText('txt-format-select-hint', t.format_select_hint);
     setText('txt-btn-confirm-theme', t.btn_confirm_style);
 
     setText('txt-btn-back', t.btn_back_style);
@@ -277,6 +294,7 @@ class PhotoBoothApp {
     setText('txt-btn-browse', t.btn_browse);
     setText('txt-btn-snap', t.btn_snap);
     setText('txt-btn-gen-upload', t.btn_gen_upload);
+    setText('txt-vf-face-guide', t.vf_face_guide);
 
     setText('txt-loading-title', t.loading_title);
     setText('loading-subtitle', t.loading_sub);
@@ -310,7 +328,6 @@ class PhotoBoothApp {
     this.btnThemeToggle = document.getElementById('btn-theme-toggle');
     const userExplicitlyToggled = localStorage.getItem('hamo_user_toggled_theme');
     const savedTheme = localStorage.getItem('hamo_photo_booth_theme');
-    // Default to dark mode for aerospace space expo
     const initialTheme = (userExplicitlyToggled && savedTheme) ? savedTheme : 'dark';
     this.setTheme(initialTheme);
 
@@ -328,7 +345,6 @@ class PhotoBoothApp {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('hamo_photo_booth_theme', theme);
     
-    // Update logo color based on theme
     const logoImg = document.querySelector('.brand-logo-img.gistda-logo');
     if (logoImg) {
       logoImg.src = theme === 'dark' ? 'logo/gistda-white.png' : 'logo/gistda-color.png';
@@ -336,7 +352,7 @@ class PhotoBoothApp {
   }
 
   /* -------------------------------------------------------------------------- */
-  /* 1. WEB AUDIO SYNTHESIZER FOR SHUTTER & COUNTDOWN                          */
+  /* 1. AUDIO SYNTHESIZER (BEEP & SHUTTER)                                      */
   /* -------------------------------------------------------------------------- */
   setupAudio() {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -349,40 +365,34 @@ class PhotoBoothApp {
     }
   }
 
-  ensureAudioResumed() {
-    if (!this.audioCtx) {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (AudioContext) this.audioCtx = new AudioContext();
-    }
-    if (this.audioCtx && this.audioCtx.state === 'suspended') {
-      this.audioCtx.resume();
-    }
-  }
-
   playBeep() {
-    this.ensureAudioResumed();
     if (!this.audioCtx) return;
     try {
+      if (this.audioCtx.state === 'suspended') {
+        this.audioCtx.resume();
+      }
       const osc = this.audioCtx.createOscillator();
       const gain = this.audioCtx.createGain();
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(880, this.audioCtx.currentTime);
-      gain.gain.setValueAtTime(0.18, this.audioCtx.currentTime);
+      osc.frequency.setValueAtTime(880, this.audioCtx.currentTime); // High pitch beep
+      gain.gain.setValueAtTime(0.15, this.audioCtx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.001, this.audioCtx.currentTime + 0.12);
       osc.connect(gain);
       gain.connect(this.audioCtx.destination);
       osc.start();
-      osc.stop(this.audioCtx.currentTime + 0.13);
-    } catch (err) {
-      console.warn('Audio play error:', err);
+      osc.stop(this.audioCtx.currentTime + 0.12);
+    } catch (e) {
+      console.warn('Audio play error:', e);
     }
   }
 
   playShutterSound() {
-    this.ensureAudioResumed();
     if (!this.audioCtx) return;
     try {
-      const bufferSize = this.audioCtx.sampleRate * 0.08;
+      if (this.audioCtx.state === 'suspended') {
+        this.audioCtx.resume();
+      }
+      const bufferSize = this.audioCtx.sampleRate * 0.15;
       const buffer = this.audioCtx.createBuffer(1, bufferSize, this.audioCtx.sampleRate);
       const data = buffer.getChannelData(0);
       for (let i = 0; i < bufferSize; i++) {
@@ -392,10 +402,10 @@ class PhotoBoothApp {
       noise.buffer = buffer;
       const filter = this.audioCtx.createBiquadFilter();
       filter.type = 'bandpass';
-      filter.frequency.value = 1800;
+      filter.frequency.value = 1200;
       const gain = this.audioCtx.createGain();
-      gain.gain.setValueAtTime(0.35, this.audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, this.audioCtx.currentTime + 0.08);
+      gain.gain.setValueAtTime(0.4, this.audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, this.audioCtx.currentTime + 0.15);
       noise.connect(filter);
       filter.connect(gain);
       gain.connect(this.audioCtx.destination);
@@ -406,7 +416,7 @@ class PhotoBoothApp {
   }
 
   /* -------------------------------------------------------------------------- */
-  /* 2. CONFIGURATION & PRESETS                                                 */
+  /* 2. CONFIGURATION & FORMAT SELECTION FIRST                                  */
   /* -------------------------------------------------------------------------- */
   async fetchConfig() {
     try {
@@ -421,113 +431,145 @@ class PhotoBoothApp {
         this.btnPrint.classList.remove('hidden');
       }
 
-      // Render default generative presets
-      this.renderCategoryCards();
+      // Default format: portrait_4x6 or config default
+      const defaultId = this.config.default_frame_id || 'portrait_4x6';
+      this.renderFormatCards();
+      this.selectFormat(defaultId);
 
-      // Render frames & stickers
+      // Render frames selector in touch studio & stickers tray
       this.renderFramesSelector();
       this.renderStickersTray();
 
-      if (this.config.theme_lock_enabled) {
-        this.selectedPresetId = this.config.locked_preset_id;
-        const lockedPreset = this.config.presets.find((p) => p.id === this.selectedPresetId);
-        this.selectedPresetName = lockedPreset ? (this.lang === 'th' ? (lockedPreset.name_th || lockedPreset.name) : lockedPreset.name) : this.selectedPresetId;
-        this.updateThemeBadge();
-        if (this.btnBackTheme) this.btnBackTheme.classList.add('hidden');
-        this.showScreen('capture');
-      } else {
-        if (this.btnBackTheme) this.btnBackTheme.classList.remove('hidden');
-        this.showScreen('theme');
-      }
+      this.showScreen('theme');
     } catch (err) {
       console.error('Failed to load configuration:', err);
     }
   }
 
-  renderCategoryCards() {
-    this.presetsGrid.innerHTML = '';
-    const items = this.selectedCategory === 'generative'
-      ? (this.config?.presets || [])
-      : (this.config?.costume_templates || []);
+  renderFormatCards() {
+    if (!this.formatOptionsGrid) return;
+    this.formatOptionsGrid.innerHTML = '';
+    const frames = (this.config?.frame_templates || []).filter(f => f.id !== 'none');
 
-    if (items.length === 0) {
-      this.presetsGrid.innerHTML = '<p class="empty-hint">No items available in this category.</p>';
-      return;
-    }
-
-    // Default select first item
-    if (this.selectedCategory === 'generative') {
-      if (!this.selectedPresetId || !items.some(i => i.id === this.selectedPresetId)) {
-        this.selectedPresetId = items[0].id;
-        this.selectedPresetName = this.lang === 'th' ? (items[0].name_th || items[0].name) : items[0].name;
-      }
-    } else {
-      if (!this.selectedCostumeId || !items.some(i => i.id === this.selectedCostumeId)) {
-        this.selectedCostumeId = items[0].id;
-        this.selectedCostumeName = this.lang === 'th' ? (items[0].name_th || items[0].name) : items[0].name;
-      }
-    }
-    this.updateThemeBadge();
-
-    items.forEach((item) => {
+    frames.forEach((frame) => {
       const card = document.createElement('div');
-      const isSelected = this.selectedCategory === 'generative'
-        ? item.id === this.selectedPresetId
-        : item.id === this.selectedCostumeId;
+      const isActive = frame.id === this.selectedFrameId;
+      card.className = `format-card ${isActive ? 'active' : ''}`;
+      card.dataset.frameId = frame.id;
 
-      card.className = `preset-card ${isSelected ? 'active' : ''}`;
-      card.dataset.id = item.id;
+      const displayName = this.lang === 'th' ? (frame.name_th || frame.name) : frame.name;
+      const displayTag = this.lang === 'th' ? (frame.tag_th || frame.tag || frame.aspect_ratio) : (frame.tag || frame.aspect_ratio);
+      const displayDesc = this.lang === 'th' ? (frame.description_th || frame.description || '') : (frame.description || '');
 
-      const displayName = this.lang === 'th' ? (item.name_th || item.name) : item.name;
-      const displayDesc = this.lang === 'th' ? (item.description_th || item.description || '') : (item.description || '');
-
-      const visualHtml = item.preview_img
-        ? `<div class="preset-thumb-wrapper">
-             <img src="${item.preview_img}" alt="${displayName}" class="preset-thumb" loading="lazy" decoding="async" onerror="this.style.display='none';">
-           </div>`
-        : `<div class="preset-thumb-wrapper" style="display:flex;align-items:center;justify-content:center;background:#0f172a;">
-             <span style="font-size:3rem;">${item.icon || '🛰️'}</span>
-           </div>`;
+      let ratioClass = 'r-4x6';
+      if (frame.aspect_ratio === '1:1') ratioClass = 'r-1x1';
+      else if (frame.aspect_ratio === '1:3') ratioClass = 'r-2x6';
 
       card.innerHTML = `
-        ${visualHtml}
-        <div class="preset-info">
-          <div class="preset-badge-row">
-            <span>${item.icon || '🛰️'}</span>
-            <span>${this.selectedCategory === 'generative' ? 'AI SYNTH' : 'EVA SUIT'}</span>
+        <div class="format-aspect-preview">
+          <div class="ratio-box ${ratioClass}"></div>
+        </div>
+        <div class="format-info">
+          <div class="format-tag-row">
+            <span class="format-dim-badge">${frame.width}×${frame.height}</span>
+            <span>${displayTag}</span>
           </div>
-          <h3 class="preset-title">${displayName}</h3>
-          <p class="preset-desc">${displayDesc}</p>
+          <h4 class="format-title">${displayName}</h4>
+          <p class="format-desc">${displayDesc}</p>
         </div>
       `;
 
       card.addEventListener('click', () => {
-        document.querySelectorAll('.preset-card').forEach((c) => c.classList.remove('active'));
-        card.classList.add('active');
-        if (this.selectedCategory === 'generative') {
-          this.selectedPresetId = item.id;
-          this.selectedPresetName = displayName;
-        } else {
-          this.selectedCostumeId = item.id;
-          this.selectedCostumeName = displayName;
-        }
-        this.updateThemeBadge();
+        this.selectFormat(frame.id);
       });
 
-      this.presetsGrid.appendChild(card);
+      this.formatOptionsGrid.appendChild(card);
     });
   }
 
-  updateThemeBadge() {
-    if (!this.selectedThemeBadge) return;
-    const t = TRANSLATIONS[this.lang] || TRANSLATIONS.th;
-    const name = this.selectedCategory === 'generative' ? this.selectedPresetName : this.selectedCostumeName;
-    const prefix = this.selectedCategory === 'generative' ? t.style_prefix : t.costume_prefix;
-    this.selectedThemeBadge.textContent = `${prefix}: ${name || 'Default'}`;
+  selectFormat(frameId) {
+    const frame = (this.config?.frame_templates || []).find(f => f.id === frameId);
+    if (!frame) return;
+
+    this.selectedFrameId = frame.id;
+    this.selectedFrameSvg = frame.svg_path;
+    this.selectedFrameAspectRatio = frame.aspect_ratio || '2:3';
+
+    // Highlight active card
+    document.querySelectorAll('.format-card').forEach((c) => {
+      c.classList.toggle('active', c.dataset.frameId === frameId);
+    });
+
+    this.applyFormatToViewfinder(frame);
+    this.updateFormatBadge();
+  }
+
+  applyFormatToViewfinder(frame) {
+    const formatClass = frame.aspect_ratio === '1:1' ? 'format-1x1' : (frame.aspect_ratio === '1:3' ? 'format-2x6' : 'format-4x6');
+
+    // Update Camera Viewfinder & Upload wrapper classes
+    if (this.wrapperCamera) {
+      this.wrapperCamera.className = `camera-wrapper ${formatClass}`;
+    }
+    if (this.wrapperUpload) {
+      this.wrapperUpload.className = `upload-wrapper ${this.inputMode === 'upload' ? '' : 'hidden'} ${formatClass}`;
+    }
+
+    // Update Live Border Frame Overlay over camera
+    if (this.cameraFrameOverlay) {
+      if (frame.svg_path) {
+        this.cameraFrameOverlay.src = frame.svg_path;
+        this.cameraFrameOverlay.classList.remove('hidden');
+      } else {
+        this.cameraFrameOverlay.classList.add('hidden');
+      }
+    }
+
+    // Telemetry text
+    const telemFormat = document.getElementById('vf-telemetry-format');
+    if (telemFormat) {
+      telemFormat.textContent = `FORMAT: ${frame.name.toUpperCase()}`;
+    }
+
+    // Update quick format pills in camera header
+    this.renderQuickFormatPills();
+  }
+
+  renderQuickFormatPills() {
+    if (!this.quickFormatPills) return;
+    this.quickFormatPills.innerHTML = '';
+    const frames = (this.config?.frame_templates || []).filter(f => f.id !== 'none');
+
+    frames.forEach((frame) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      const isActive = frame.id === this.selectedFrameId;
+      btn.className = `quick-format-pill ${isActive ? 'active' : ''}`;
+      const label = frame.aspect_ratio === '2:3' ? '4:6' : (frame.aspect_ratio === '1:1' ? '1:1' : '2:6');
+      btn.textContent = label;
+      btn.title = frame.name;
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.selectFormat(frame.id);
+      });
+      this.quickFormatPills.appendChild(btn);
+    });
+  }
+
+  updateFormatBadge() {
+    const frame = (this.config?.frame_templates || []).find(f => f.id === this.selectedFrameId);
+    if (!frame) return;
+    const name = this.lang === 'th' ? (frame.name_th || frame.name) : frame.name;
+    if (this.cameraFormatBadge) {
+      this.cameraFormatBadge.textContent = name;
+    }
+    if (this.selectedThemeBadge) {
+      this.selectedThemeBadge.textContent = this.lang === 'th' ? 'ชุดอวกาศ: THEOS-2' : 'Spacesuit: THEOS-2';
+    }
   }
 
   /* -------------------------------------------------------------------------- */
-  /* 3. CAMERA SETUP & CONTROLS                                                */
+  /* 3. CAMERA SETUP & VIEWPORT CROPPED CAPTURE                                 */
   /* -------------------------------------------------------------------------- */
   async setupCamera() {
     if (this.inputMode !== 'camera') return;
@@ -539,8 +581,8 @@ class PhotoBoothApp {
       this.stream = await navigator.mediaDevices.getUserMedia({
         video: {
           facingMode: this.currentFacingMode,
-          width: { ideal: 1280 },
-          height: { ideal: 720 },
+          width: { ideal: 1920 },
+          height: { ideal: 1080 },
         },
         audio: false,
       });
@@ -563,10 +605,12 @@ class PhotoBoothApp {
 
   switchInputMode(mode) {
     this.inputMode = mode;
+    const formatClass = this.selectedFrameAspectRatio === '1:1' ? 'format-1x1' : (this.selectedFrameAspectRatio === '1:3' ? 'format-2x6' : 'format-4x6');
+
     if (mode === 'camera') {
       this.tabModeCamera.classList.add('active');
       this.tabModeUpload.classList.remove('active');
-      this.wrapperCamera.classList.remove('hidden');
+      this.wrapperCamera.className = `camera-wrapper ${formatClass}`;
       this.wrapperUpload.classList.add('hidden');
       this.btnSnap.classList.remove('hidden');
       this.btnGenerateUploaded.classList.add('hidden');
@@ -575,7 +619,7 @@ class PhotoBoothApp {
       this.tabModeCamera.classList.remove('active');
       this.tabModeUpload.classList.add('active');
       this.wrapperCamera.classList.add('hidden');
-      this.wrapperUpload.classList.remove('hidden');
+      this.wrapperUpload.className = `upload-wrapper ${formatClass}`;
       this.btnSnap.classList.add('hidden');
       this.btnGenerateUploaded.classList.remove('hidden');
       if (this.stream) {
@@ -657,6 +701,57 @@ class PhotoBoothApp {
     }
   }
 
+  capturePhotoBase64() {
+    const ctx = this.canvasEl.getContext('2d');
+    const vidW = this.videoEl.videoWidth || 1280;
+    const vidH = this.videoEl.videoHeight || 720;
+
+    let targetRatio = 1.0;
+    if (this.selectedFrameAspectRatio === '2:3') {
+      targetRatio = 2 / 3;
+    } else if (this.selectedFrameAspectRatio === '1:3') {
+      targetRatio = 1 / 3;
+    }
+
+    // Calculate crop rectangle matching viewfinder on screen
+    let cropW, cropH, cropX, cropY;
+    const vidRatio = vidW / vidH;
+
+    if (vidRatio > targetRatio) {
+      cropH = vidH;
+      cropW = Math.round(vidH * targetRatio);
+      cropX = Math.round((vidW - cropW) / 2);
+      cropY = 0;
+    } else {
+      cropW = vidW;
+      cropH = Math.round(vidW / targetRatio);
+      cropX = 0;
+      cropY = Math.round((vidH - cropH) / 2);
+    }
+
+    const outWidth = targetRatio === 1 ? 1024 : (targetRatio === 2/3 ? 1200 : 600);
+    const outHeight = targetRatio === 1 ? 1024 : 1800;
+
+    this.canvasEl.width = outWidth;
+    this.canvasEl.height = outHeight;
+
+    if (this.videoEl.readyState >= 2) {
+      ctx.save();
+      if (this.currentFacingMode === 'user') {
+        ctx.scale(-1, 1);
+        ctx.drawImage(this.videoEl, cropX, cropY, cropW, cropH, -outWidth, 0, outWidth, outHeight);
+      } else {
+        ctx.drawImage(this.videoEl, cropX, cropY, cropW, cropH, 0, 0, outWidth, outHeight);
+      }
+      ctx.restore();
+    } else {
+      ctx.fillStyle = '#030712';
+      ctx.fillRect(0, 0, outWidth, outHeight);
+    }
+
+    return this.canvasEl.toDataURL('image/jpeg', 0.94);
+  }
+
   /* -------------------------------------------------------------------------- */
   /* 4. INTERACTIVE DECORATION STUDIO (FRAMES, STICKERS, DRAWING)               */
   /* -------------------------------------------------------------------------- */
@@ -665,9 +760,9 @@ class PhotoBoothApp {
     this.framesSelector.innerHTML = '';
     const frames = this.config?.frame_templates || [];
 
-    frames.forEach((frame, idx) => {
+    frames.forEach((frame) => {
       const btn = document.createElement('button');
-      btn.className = `frame-btn ${idx === 0 ? 'active' : ''}`;
+      btn.className = `frame-btn ${frame.id === this.selectedFrameId ? 'active' : ''}`;
       const name = this.lang === 'th' ? (frame.name_th || frame.name) : frame.name;
       btn.innerHTML = `<span>${frame.icon || '🛰️'}</span><span>${name}</span>`;
       btn.onclick = () => {
@@ -682,16 +777,16 @@ class PhotoBoothApp {
   applyFrame(frame) {
     this.selectedFrameId = frame.id;
     this.selectedFrameSvg = frame.svg_path;
-    this.selectedFrameAspectRatio = frame.aspect_ratio || '1:1';
+    this.selectedFrameAspectRatio = frame.aspect_ratio || '2:3';
 
-    // Update viewport class
-    this.studioViewport.className = 'studio-viewport';
-    if (frame.id === 'portrait_4x6') {
-      this.studioViewport.classList.add('format-4x6');
-    } else if (frame.id === 'strip_2x6') {
-      this.studioViewport.classList.add('format-2x6');
-    } else {
-      this.studioViewport.classList.add('format-1x1');
+    // Update studio viewport format class
+    const formatClass = frame.aspect_ratio === '1:1' ? 'format-1x1' : (frame.aspect_ratio === '1:3' ? 'format-2x6' : 'format-4x6');
+    this.studioViewport.className = `studio-viewport ${formatClass}`;
+
+    // Update photo frame container class on result screen too
+    const resultFrameContainer = document.querySelector('.photo-frame-container');
+    if (resultFrameContainer) {
+      resultFrameContainer.className = `photo-frame-container ${formatClass}`;
     }
 
     // Update frame overlay image
@@ -702,7 +797,6 @@ class PhotoBoothApp {
       this.studioFrameOverlay.classList.add('hidden');
     }
 
-    // Resize drawing canvas to match viewport
     setTimeout(() => this.resizeDrawCanvas(), 50);
   }
 
@@ -807,7 +901,7 @@ class PhotoBoothApp {
 
   undoDraw() {
     if (this.drawingUndoStack.length <= 1) return;
-    this.drawingUndoStack.pop(); // Remove current
+    this.drawingUndoStack.pop();
     const prev = this.drawingUndoStack[this.drawingUndoStack.length - 1];
     const ctx = this.studioDrawCanvas.getContext('2d');
     ctx.putImageData(prev, 0, 0);
@@ -823,25 +917,6 @@ class PhotoBoothApp {
 
   bindStudioEvents() {
     const t = () => TRANSLATIONS[this.lang] || TRANSLATIONS.th;
-
-    // Category Switcher
-    if (this.tabCatGenerative) {
-      this.tabCatGenerative.addEventListener('click', () => {
-        this.selectedCategory = 'generative';
-        this.tabCatGenerative.classList.add('active');
-        this.tabCatCostume.classList.remove('active');
-        this.renderCategoryCards();
-      });
-    }
-
-    if (this.tabCatCostume) {
-      this.tabCatCostume.addEventListener('click', () => {
-        this.selectedCategory = 'costume';
-        this.tabCatCostume.classList.add('active');
-        this.tabCatGenerative.classList.remove('active');
-        this.renderCategoryCards();
-      });
-    }
 
     // Color Palette
     document.querySelectorAll('.color-dot').forEach((dot) => {
@@ -952,7 +1027,7 @@ class PhotoBoothApp {
   }
 
   /* -------------------------------------------------------------------------- */
-  /* 5. BAKE COMPOSITE (FLATTEN PHOTO + FRAMES + DRAWINGS + STICKERS)           */
+  /* 5. BAKE COMPOSITE (PHOTO + FRAMES + DRAWINGS + STICKERS)                   */
   /* -------------------------------------------------------------------------- */
   async bakeFinalComposite() {
     const t = TRANSLATIONS[this.lang] || TRANSLATIONS.th;
@@ -961,13 +1036,15 @@ class PhotoBoothApp {
 
     try {
       const exportCanvas = document.createElement('canvas');
-      const targetWidth = 1024;
+      let targetWidth = 1024;
       let targetHeight = 1024;
 
       if (this.selectedFrameAspectRatio === '2:3') {
-        targetHeight = 1536; // 4x6
+        targetWidth = 1200;
+        targetHeight = 1800; // 4x6 Keepsake
       } else if (this.selectedFrameAspectRatio === '1:3') {
-        targetHeight = 3072; // 2x6 strip
+        targetWidth = 600;
+        targetHeight = 1800; // 2x6 strip
       }
 
       exportCanvas.width = targetWidth;
@@ -978,9 +1055,9 @@ class PhotoBoothApp {
       const baseImg = this.studioBasePhoto;
       if (baseImg.complete && baseImg.naturalWidth > 0) {
         if (this.selectedFrameAspectRatio === '1:3') {
-          // Double shot stack for 2x6 strip
-          ctx.drawImage(baseImg, 40, 60, targetWidth - 80, 1400);
-          ctx.drawImage(baseImg, 40, 1500, targetWidth - 80, 1400);
+          // Double shot stack for 2x6 strip (Slot 1: Y=50, H=680; Slot 2: Y=770, H=680)
+          ctx.drawImage(baseImg, 40, 50, 520, 680);
+          ctx.drawImage(baseImg, 40, 770, 520, 680);
         } else {
           ctx.drawImage(baseImg, 0, 0, targetWidth, targetHeight);
         }
@@ -1036,6 +1113,13 @@ class PhotoBoothApp {
       this.currentGeneratedImageUrl = finalUrl;
       this.resultPhoto.src = finalUrl;
 
+      // Update photo frame container class on result screen
+      const resultFrameContainer = document.querySelector('.photo-frame-container');
+      if (resultFrameContainer) {
+        const formatClass = this.selectedFrameAspectRatio === '1:1' ? 'format-1x1' : (this.selectedFrameAspectRatio === '1:3' ? 'format-2x6' : 'format-4x6');
+        resultFrameContainer.className = `photo-frame-container ${formatClass}`;
+      }
+
       // Update download link
       if (this.btnDownload) {
         this.btnDownload.href = finalUrl;
@@ -1074,11 +1158,7 @@ class PhotoBoothApp {
 
     this.btnReset.addEventListener('click', () => {
       this.clearDrawingsAndStickers();
-      if (this.config?.theme_lock_enabled) {
-        this.showScreen('capture');
-      } else {
-        this.showScreen('theme');
-      }
+      this.showScreen('theme');
     });
 
     if (this.btnDownload) {
@@ -1191,42 +1271,14 @@ class PhotoBoothApp {
     }, 450);
   }
 
-  capturePhotoBase64() {
-    const ctx = this.canvasEl.getContext('2d');
-    const width = this.videoEl.videoWidth || 1280;
-    const height = this.videoEl.videoHeight || 720;
-    this.canvasEl.width = width;
-    this.canvasEl.height = height;
-
-    if (this.videoEl.readyState >= 2) {
-      ctx.save();
-      if (this.currentFacingMode === 'user') {
-        ctx.scale(-1, 1);
-        ctx.drawImage(this.videoEl, -width, 0, width, height);
-      } else {
-        ctx.drawImage(this.videoEl, 0, 0, width, height);
-      }
-      ctx.restore();
-    } else {
-      ctx.fillStyle = '#030712';
-      ctx.fillRect(0, 0, width, height);
-      ctx.fillStyle = '#38bdf8';
-      ctx.font = 'bold 32px sans-serif';
-      ctx.fillText('GISTDA Live Camera Feed', 100, height / 2);
-    }
-
-    return this.canvasEl.toDataURL('image/jpeg', 0.92);
-  }
-
   async captureAndGenerate(photoBase64) {
     this.showScreen('loading');
 
-    const isCostume = this.selectedCategory === 'costume';
     const payload = {
       image: photoBase64,
-      isCostume,
-      presetId: isCostume ? null : this.selectedPresetId,
-      costumeId: isCostume ? this.selectedCostumeId : null,
+      costumeId: 'theos2_astronaut',
+      format: this.selectedFrameAspectRatio,
+      isCostume: true,
     };
 
     try {
@@ -1245,6 +1297,12 @@ class PhotoBoothApp {
       this.studioBasePhoto.src = data.imageUrl;
       this.qrCode.src = data.qrUrl;
 
+      // Apply the active frame chosen in Step 1
+      const activeFrame = (this.config?.frame_templates || []).find(f => f.id === this.selectedFrameId) || this.config?.frame_templates?.[0];
+      if (activeFrame) {
+        this.applyFrame(activeFrame);
+      }
+
       // Transition to Step 4: Decoration Studio
       this.studioBasePhoto.onload = () => {
         this.showScreen('decorate');
@@ -1256,12 +1314,8 @@ class PhotoBoothApp {
       }
     } catch (err) {
       console.error('Generation Error:', err);
-      alert(`AI Photo Generation Error: ${err.message}`);
-      if (this.config?.theme_lock_enabled) {
-        this.showScreen('capture');
-      } else {
-        this.showScreen('theme');
-      }
+      alert(`Face Swap Error: ${err.message}`);
+      this.showScreen('theme');
     }
   }
 

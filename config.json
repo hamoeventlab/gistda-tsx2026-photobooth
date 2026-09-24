@@ -1,5 +1,5 @@
 {
-  "active_engine": "mock",
+  "active_engine": "face_swap",
   "fal_model": "fal-ai/flux-pulid",
   "replicate_model": "stability-ai/sdxl",
   "local_comfy_url": "http://127.0.0.1:8188",
@@ -8,8 +8,9 @@
   "organizer": "HAMO Event Lab (Sinjanakom Corporation Co., Ltd.)",
   "countdown_seconds": 3,
   "result_display_seconds": 25,
-  "theme_lock_enabled": false,
+  "theme_lock_enabled": true,
   "locked_preset_id": "theos2_astronaut",
+  "default_frame_id": "portrait_4x6",
   "print_enabled": true,
   "default_language": "en",
   "output_resolution": {
@@ -25,36 +26,60 @@
   },
   "frame_templates": [
     {
+      "id": "portrait_4x6",
+      "name": "4:6 Keepsake (VIP Postcard)",
+      "name_th": "4:6 โปสการ์ดเกียรติยศ (VIP Postcard)",
+      "aspect_ratio": "2:3",
+      "width": 1200,
+      "height": 1800,
+      "icon": "📸",
+      "tag": "4×6 INCH PRINT",
+      "tag_th": "พิมพ์ 4×6 นิ้ว",
+      "svg_path": "/assets/frames/frame_portrait_4x6.svg",
+      "description": "Standard 4×6\" Dye-Sub Keepsake Print for Thailand Space Expo 2026",
+      "description_th": "ขนาดพิมพ์มาตรฐาน 4×6 นิ้ว สำหรับของที่ระลึก Thailand Space Expo 2026"
+    },
+    {
+      "id": "classic_1x1",
+      "name": "1:1 Square (Mission Pass)",
+      "name_th": "1:1 สี่เหลี่ยมจัตุรัส (Mission Pass)",
+      "aspect_ratio": "1:1",
+      "width": 1024,
+      "height": 1024,
+      "icon": "🛰️",
+      "tag": "SQUARE AVATAR",
+      "tag_th": "อวาตาร์จัตุรัส",
+      "svg_path": "/assets/frames/frame_classic_1x1.svg",
+      "description": "Official GISTDA Mission Avatar Pass • 1:1 Social & Badge Format",
+      "description_th": "กรอบภารกิจทางการ GISTDA • เหมาะสำหรับรูปโปรไฟล์และบัตรอวาตาร์"
+    },
+    {
+      "id": "strip_2x6",
+      "name": "2:6 Photostrip (Mission Strip)",
+      "name_th": "2:6 สตริปภาพถ่ายอวกาศ (Mission Strip)",
+      "aspect_ratio": "1:3",
+      "width": 600,
+      "height": 1800,
+      "icon": "🎞️",
+      "tag": "2×6 INCH STRIP",
+      "tag_th": "สตริป 2×6 นิ้ว",
+      "svg_path": "/assets/frames/frame_strip_2x6.svg",
+      "description": "Classic 2-cut vertical photo booth souvenir strip",
+      "description_th": "สตริปภาพถ่ายตู้สติกเกอร์แนวตั้ง 2 ช่องสุดคลาสสิก"
+    },
+    {
       "id": "none",
       "name": "Clean Borderless",
       "name_th": "ไร้กรอบ (ภาพเต็ม)",
       "aspect_ratio": "1:1",
+      "width": 1024,
+      "height": 1024,
       "icon": "🔳",
-      "svg_path": null
-    },
-    {
-      "id": "classic_1x1",
-      "name": "GISTDA Mission (1:1)",
-      "name_th": "กรอบภารกิจ GISTDA (1:1)",
-      "aspect_ratio": "1:1",
-      "icon": "🛰️",
-      "svg_path": "/assets/frames/frame_classic_1x1.svg"
-    },
-    {
-      "id": "portrait_4x6",
-      "name": "TSX VIP Keepsake (4:6)",
-      "name_th": "โปสการ์ดเกียรติยศ TSX (4:6)",
-      "aspect_ratio": "2:3",
-      "icon": "📸",
-      "svg_path": "/assets/frames/frame_portrait_4x6.svg"
-    },
-    {
-      "id": "strip_2x6",
-      "name": "Mission Strip (2:6)",
-      "name_th": "สตริปภาพถ่ายอวกาศ (2:6)",
-      "aspect_ratio": "1:3",
-      "icon": "🎞️",
-      "svg_path": "/assets/frames/frame_strip_2x6.svg"
+      "tag": "BORDERLESS",
+      "tag_th": "ไร้ขอบ",
+      "svg_path": null,
+      "description": "Clean photo without outer frame branding",
+      "description_th": "ภาพถ่ายเต็มใบไร้กรอบตกแต่ง"
     }
   ],
   "stickers": [
@@ -130,17 +155,5 @@
       "icon": "👨‍🚀"
     }
   ],
-  "presets": [
-    {
-      "id": "theos2_orbit",
-      "name": "THEOS-2 Orbital Spacesuit",
-      "name_th": "ชุดนักบินอวกาศวงโคจร THEOS-2",
-      "type": "generative",
-      "preview_img": "themes/cosmic_astronaut.jpg",
-      "prompt": "cinematic portrait of this person as an elite astronaut in low Earth orbit, sleek futuristic space suit with GISTDA and Thailand mission patches, glowing cyan helmet visor reflections, THEOS-2 satellite and Earth horizon backdrop, dramatic studio lighting, 8k, photorealistic, sharp focus",
-      "icon": "🛰️",
-      "description": "Deep space EVA suit in low Earth orbit with THEOS-2 satellite",
-      "description_th": "ชุดนักบินอวกาศเหนือเส้นขอบฟ้าโลกพร้อมดาวเทียม THEOS-2"
-    }
-  ]
+  "presets": []
 }
