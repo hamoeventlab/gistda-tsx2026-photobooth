@@ -15,6 +15,7 @@ const TRANSLATIONS = {
     agency_badge: 'GISTDA THAILAND',
     header_title: 'GISTDA PARTNER ENGAGEMENT PROGRAM 2026',
     header_sub: 'AI MISSION AVATAR STUDIO',
+    btn_portal: 'กลับสู่พอร์ทัล',
     btn_stage: 'จอแสดงผล Stage',
     step1_tag: 'ขั้นตอนที่ 1 จาก 4 • เตรียมภารกิจ',
     step1_title: 'THEOS-2 Mission Avatar Studio',
@@ -67,6 +68,7 @@ const TRANSLATIONS = {
     agency_badge: 'GISTDA THAILAND',
     header_title: 'GISTDA PARTNER ENGAGEMENT PROGRAM 2026',
     header_sub: 'AI MISSION AVATAR STUDIO',
+    btn_portal: 'Master Portal',
     btn_stage: 'Stage Screen',
     step1_tag: 'STEP 1 OF 4 • MISSION SETUP',
     step1_title: 'THEOS-2 Mission Avatar Studio',
@@ -272,6 +274,7 @@ class PhotoBoothApp {
     setText('badge-agency-text', t.agency_badge);
     setText('txt-header-title', t.header_title);
     setText('txt-header-sub', t.header_sub);
+    setText('txt-btn-portal', t.btn_portal);
     setText('txt-btn-stage', t.btn_stage);
 
     setText('txt-step1-tag', t.step1_tag);

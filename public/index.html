@@ -22,37 +22,43 @@
     <!-- Header HUD -->
     <header class="header">
       <div class="brand-badge">
-        <img src="logo/gistda-white.png" alt="GISTDA" class="brand-logo-img gistda-logo">
+        <a href="https://gistda-partner2026-portal.vercel.app/" class="brand-logo-link" title="GISTDA Partner Portal">
+          <img src="logo/gistda-white.png" alt="GISTDA" class="brand-logo-img gistda-logo">
+        </a>
         <div class="brand-divider-vert"></div>
         <div class="brand-title-group">
-          <div class="agency-mission-pill">
-            <span class="agency-bullet"></span>
-            <span id="badge-agency-text" class="agency-text">GISTDA THAILAND</span>
+          <div class="brand-title-row">
+            <span class="agency-text" id="badge-agency-text">GISTDA THAILAND</span>
+            <span class="brand-sub-badge" id="txt-header-sub">AI MISSION AVATAR STUDIO</span>
           </div>
-          <div class="brand-titles">
-            <h1 class="brand-title" id="txt-header-title">GISTDA PARTNER ENGAGEMENT PROGRAM 2026</h1>
-            <span class="brand-sub" id="txt-header-sub">AI MISSION AVATAR STUDIO</span>
-          </div>
+          <h1 class="brand-title" id="txt-header-title">GISTDA PARTNER ENGAGEMENT PROGRAM 2026</h1>
         </div>
       </div>
 
       <div class="header-right">
-        <!-- Dual Language Switcher (Pill Style, Matches Portal) -->
-        <div class="lang-switcher" role="group" aria-label="Language Switcher">
-          <button type="button" id="btn-lang-th" class="lang-btn" title="ภาษาไทย">TH</button>
-          <button type="button" id="btn-lang-en" class="lang-btn active" title="English">EN</button>
-        </div>
+        <!-- Master Portal Link -->
+        <a href="https://gistda-partner2026-portal.vercel.app/" class="header-btn" title="Back to Master Portal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="header-btn-icon"><path d="m15 18-6-6 6-6"/></svg>
+          <span id="txt-btn-portal">Master Portal</span>
+        </a>
 
-        <a href="/stage" target="_blank" class="btn-stage-link" title="Open Stage LED Wall in new tab">
+        <!-- Stage Screen Link -->
+        <a href="/stage" target="_blank" class="header-btn" title="Open Stage LED Wall in new tab">
           <span class="live-dot-pulse"></span>
           <span id="txt-btn-stage">Stage Screen</span>
         </a>
 
-        <button id="btn-theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Theme" title="Toggle Theme">
+        <!-- Dual Language Switcher (Pill Style, Matches Portal) -->
+        <div class="lang-switcher" role="group" aria-label="Language Switcher">
+          <button type="button" id="btn-lang-en" class="lang-btn active" title="English">EN</button>
+          <button type="button" id="btn-lang-th" class="lang-btn" title="ภาษาไทย">TH</button>
+        </div>
+
+        <!-- Dev Controls hidden from public presentation -->
+        <button id="btn-theme-toggle" class="btn-theme-toggle" style="display: none;" aria-hidden="true">
           <span class="theme-label-mode">THEME</span>
         </button>
-
-        <div id="engine-badge" class="badge">READY</div>
+        <div id="engine-badge" class="badge" style="display: none;" aria-hidden="true">READY</div>
       </div>
     </header>
 

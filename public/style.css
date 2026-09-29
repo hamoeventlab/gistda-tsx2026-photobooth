@@ -147,8 +147,8 @@ body::before {
   inset: 0;
   width: 100%;
   height: 100%;
-  background-image: url('bg/BG-GISTDA-4K.png');
-  background-position: center;
+  background-image: url('bg/custom-bg.png');
+  background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -2;
@@ -191,6 +191,7 @@ body::before {
   align-items: center;
   margin-bottom: 24px;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .brand-badge {
@@ -199,14 +200,25 @@ body::before {
   gap: 14px;
   background: var(--bg-surface);
   border: 1px solid var(--border-cyan);
-  padding: 8px 22px;
+  padding: 8px 18px;
   border-radius: var(--radius-pill);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), 0 0 20px var(--accent-cyan-glow);
   backdrop-filter: blur(20px);
 }
 
+.brand-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.brand-logo-link:hover {
+  transform: scale(1.04);
+}
+
 .brand-logo-img {
-  height: 32px;
+  height: 30px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.4));
@@ -214,90 +226,131 @@ body::before {
 
 .brand-divider-vert {
   width: 1px;
-  height: 26px;
+  height: 24px;
   background: var(--border-default);
 }
 
 .brand-title-group {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
-.agency-mission-pill {
-  display: inline-flex;
+.brand-title-row {
+  display: flex;
   align-items: center;
-  gap: 5px;
-  background: rgba(30, 58, 138, 0.4);
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  padding: 1px 8px;
-  border-radius: var(--radius-pill);
-  width: fit-content;
-}
-
-.pulse-rocket {
-  font-size: 0.72rem;
-  animation: pulseGlow 2s infinite ease-in-out;
+  gap: 8px;
 }
 
 .agency-text {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 700;
   color: #38bdf8;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-.brand-titles {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
+.brand-sub-badge {
+  background: rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 1.2px;
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
 }
 
 .brand-title {
   font-family: var(--font-heading);
   font-weight: 800;
-  letter-spacing: 1px;
-  font-size: 0.95rem;
+  letter-spacing: 0.8px;
+  font-size: 0.88rem;
   color: var(--text-primary);
-}
-
-.brand-sub {
-  color: var(--accent-cyan);
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 0.76rem;
-  letter-spacing: 1.5px;
+  line-height: 1.2;
 }
 
 .header-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
-/* Dual Language Switcher (Pill Style) */
-.lang-switcher {
-  display: flex;
+/* Strictly Uniform Height (36px) & Matching Style for All Header Controls */
+.header-btn {
+  display: inline-flex;
   align-items: center;
+  gap: 7px;
+  height: 36px;
+  padding: 0 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-cyan);
+  color: var(--text-primary);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.header-btn:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  box-shadow: 0 0 16px var(--accent-cyan-glow);
+  transform: translateY(-1px);
+}
+
+.header-btn-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  stroke: var(--accent-cyan);
+}
+
+.live-dot-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+  animation: liveDotPulse 1.8s infinite;
+  flex-shrink: 0;
+}
+
+/* Dual Language Switcher (Matching 36px Height, 1:1 with Portal) */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
   background: var(--bg-surface);
   border: 1px solid var(--border-cyan);
   border-radius: var(--radius-pill);
-  padding: 3px;
+  padding: 2px;
   backdrop-filter: blur(16px);
-  gap: 3px;
+  gap: 2px;
   box-shadow: var(--shadow-sm);
 }
 
 .lang-btn {
+  height: 30px;
+  padding: 0 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   border: none;
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  padding: 5px 12px;
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -310,41 +363,7 @@ body::before {
 .lang-btn.active {
   background: var(--accent-blue);
   color: #ffffff;
-  box-shadow: 0 0 14px rgba(37, 99, 235, 0.6);
-}
-
-/* Stage Screen Link Button */
-.btn-stage-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-cyan);
-  color: var(--text-primary);
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  font-size: 0.84rem;
-  font-weight: 600;
-  text-decoration: none;
-  backdrop-filter: blur(16px);
-  box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
-}
-
-.btn-stage-link:hover {
-  border-color: var(--accent-cyan);
-  color: var(--accent-cyan);
-  box-shadow: 0 0 18px var(--accent-cyan-glow);
-  transform: translateY(-1px);
-}
-
-.live-dot-pulse {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent-green);
-  box-shadow: 0 0 8px var(--accent-green);
-  animation: liveDotPulse 1.8s infinite;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.6);
 }
 
 @keyframes liveDotPulse {
