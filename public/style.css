@@ -48,10 +48,10 @@
   --modal-overlay-bg: rgba(15, 23, 42, 0.6);
 
   /* Typography Families */
-  --font-display: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-heading: 'Geist', 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Montserrat', 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Montserrat', 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Geist Mono', monospace;
-  --font-body: 'Geist', 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Montserrat', 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-thai: 'Prompt', -apple-system, sans-serif;
 
   --radius-sm: 8px;
@@ -124,6 +124,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  background-color: #030712;
+}
+
 body {
   background-color: var(--bg-canvas);
   color: var(--text-primary);
@@ -134,11 +138,21 @@ body {
   align-items: center;
   overflow-x: hidden;
   position: relative;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   background-image: url('bg/BG-GISTDA-4K.png');
-  background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  background-repeat: no-repeat;
+  z-index: -2;
+  pointer-events: none;
 }
 
 /* Aerospace Halo Backlight */

@@ -595,6 +595,7 @@ class PhotoBoothApp {
       }
     } catch (err) {
       console.warn('Camera access unavailable:', err);
+      this.switchInputMode('upload');
     }
   }
 
@@ -887,7 +888,6 @@ class PhotoBoothApp {
     this.studioDrawCanvas.style.height = `${rect.height}px`;
 
     const ctx = this.studioDrawCanvas.getContext('2d');
-    ctx.scale(dpr, dpr);
     this.drawingUndoStack = [];
     this.saveCanvasState();
   }
