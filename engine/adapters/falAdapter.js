@@ -15,6 +15,10 @@ export class FalAdapter {
       throw new Error("FAL_KEY environment variable is not set.");
     }
 
+    fal.config({
+      credentials: process.env.FAL_KEY,
+    });
+
     const falModel = this.config.fal_model || "fal-ai/flux-pulid";
     console.log(`[FalAdapter] Sending request to Fal.ai model: ${falModel}...`);
 

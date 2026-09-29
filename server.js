@@ -184,10 +184,31 @@ app.post('/api/compose-print', async (req, res) => {
     if (stageHistory.length > 50) stageHistory.shift();
     broadcastToStage({ type: 'new_photo', photo: stageItem });
 
+    let fullDownloadUrl = publicUrl.startsWith('http') ? publicUrl : `${req.protocol}://${req.get('host')}${publicUrl}`;
+    let qrTargetUrl = fullDownloadUrl;
+    if (publicUrl.startsWith('data:')) {
+      qrTargetUrl = `${req.protocol}://${req.get('host')}/?demo=${timestamp}`;
+    }
+
+    let qrDataUrl = '';
+    try {
+      qrDataUrl = await QRCode.toDataURL(qrTargetUrl, {
+        width: 256,
+        margin: 1,
+        color: {
+          dark: '#00F0FF',
+          light: '#030712',
+        },
+      });
+    } catch (qrErr) {
+      console.warn('[Server] Compose-print QR generation warning:', qrErr.message);
+    }
+
     res.json({
       success: true,
       imageUrl: publicUrl,
-      downloadUrl: publicUrl.startsWith('http') ? publicUrl : `${req.protocol}://${req.get('host')}${publicUrl}`,
+      downloadUrl: fullDownloadUrl,
+      qrUrl: qrDataUrl,
     });
   } catch (error) {
     console.error('[Composite Print Error]:', error);
@@ -198,7 +219,7 @@ app.post('/api/compose-print', async (req, res) => {
 // Endpoint: Generate AI Photo / Face Swap
 app.post('/api/generate', async (req, res) => {
   try {
-    const { image, presetId, costumeId, isCostume, customPrompt } = req.body;
+    const { image, presetId, costumeId, customPrompt } = req.body;
 
     if (!image) {
       return res.status(400).json({ error: 'No camera photo provided.' });
@@ -216,16 +237,22 @@ app.post('/api/generate', async (req, res) => {
       id: 'theos2_astronaut',
       name: 'THEOS-2 Mission Spacesuit',
       template_img: '/assets/costumes/astronaut.jpg',
+      prompt: 'cinematic portrait of this person as an elite astronaut in low Earth orbit, sleek futuristic spacesuit with GISTDA and Thailand mission patches, glowing cyan helmet visor reflections, THEOS-2 satellite and Earth horizon backdrop, dramatic studio lighting, 8k, photorealistic, sharp focus',
     };
     chosenThemeName = costume?.name || 'THEOS-2 Mission Spacesuit';
-    console.log(`[Server] Generating seamless mission portrait face swap: ${chosenThemeName}`);
+
+    const spacesuitPrompt = customPrompt || costume.prompt ||
+      'cinematic portrait of this person as an elite astronaut in low Earth orbit, sleek futuristic spacesuit with GISTDA and Thailand mission patches, glowing cyan helmet visor reflections, THEOS-2 satellite and Earth horizon backdrop, dramatic studio lighting, 8k, photorealistic, sharp focus';
+
+    console.log(`[Server] Generating seamless mission avatar portrait: ${chosenThemeName}`);
 
     const result = await engineManager.generate({
       imageBuffer,
       costumeId: costume.id,
+      prompt: spacesuitPrompt,
       templateImgPath: costume.template_img || '/assets/costumes/astronaut.jpg',
       format: req.body.format || '1:1',
-      isCostume: true,
+      presetId: presetId || costume.id,
     });
     rawBuffer = result.buffer;
     cdnUrl = result.cdnUrl;

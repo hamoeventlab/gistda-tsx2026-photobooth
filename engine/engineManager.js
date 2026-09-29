@@ -30,25 +30,38 @@ export class EngineManager {
   }
 
   async generate(params) {
-    // If the request specifically specifies fixed costume mode, route to face_swap adapter
-    if (params.isCostume || params.costumeId) {
-      console.log(`[EngineManager] Routing to FaceSwapAdapter for costume: ${params.costumeId}`);
-      return await this.adapters.face_swap.generate(params);
-    }
-
     const engineName = this.getActiveEngineName();
+    console.log(`[EngineManager] Generating via active engine: '${engineName}'`);
+
+    const defaultSpacesuitPrompt =
+      "cinematic portrait of this person as an elite astronaut in low Earth orbit, sleek futuristic spacesuit with GISTDA and Thailand mission patches, glowing cyan helmet visor reflections, THEOS-2 satellite and Earth horizon backdrop, dramatic studio lighting, 8k, photorealistic, sharp focus";
+
+    params.prompt = params.prompt || defaultSpacesuitPrompt;
+
     const adapter = this.adapters[engineName];
-
-    if (!adapter) {
-      throw new Error(`Engine adapter '${engineName}' is not registered.`);
+    if (adapter) {
+      try {
+        console.log(`[EngineManager] Running generation via adapter '${engineName}'...`);
+        const result = await adapter.generate(params);
+        if (Buffer.isBuffer(result)) {
+          return { buffer: result, cdnUrl: null };
+        }
+        return result;
+      } catch (err) {
+        console.warn(`[EngineManager] Engine '${engineName}' failed: ${err.message}. Triggering fallback...`);
+      }
     }
 
-    console.log(`[EngineManager] Running generation via active engine: '${engineName}'`);
-    const result = await adapter.generate(params);
-
-    if (Buffer.isBuffer(result)) {
-      return { buffer: result, cdnUrl: null };
+    // Graceful offline/error fallback to local face_swap
+    if (this.adapters.face_swap) {
+      console.log(`[EngineManager] Fallback: routing to FaceSwapAdapter`);
+      const fallbackResult = await this.adapters.face_swap.generate(params);
+      if (Buffer.isBuffer(fallbackResult)) {
+        return { buffer: fallbackResult, cdnUrl: null };
+      }
+      return fallbackResult;
     }
-    return result;
+
+    throw new Error(`Engine adapter '${engineName}' failed and no fallback available.`);
   }
 }

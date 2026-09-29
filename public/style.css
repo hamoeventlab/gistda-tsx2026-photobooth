@@ -1332,6 +1332,7 @@ body::before {
   cursor: grab;
   user-select: none;
   touch-action: none;
+  box-sizing: border-box;
 }
 
 .sticker-item:active {
@@ -1339,8 +1340,109 @@ body::before {
 }
 
 .sticker-item.selected {
-  outline: 2px dashed #00f0ff;
+  outline: 1.5px dashed #00F0FF;
   outline-offset: 4px;
+}
+
+/* Sticker Control Handles: Hidden by default, shown when selected */
+.sticker-item .sticker-del-btn,
+.sticker-item .sticker-scale-btn,
+.sticker-item .sticker-resize-handle {
+  display: none;
+}
+
+.sticker-item.selected .sticker-del-btn,
+.sticker-item.selected .sticker-scale-btn,
+.sticker-item.selected .sticker-resize-handle {
+  display: flex;
+}
+
+/* Delete Button */
+.sticker-del-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ef4444;
+  color: #ffffff;
+  border: 1.5px solid #030712;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  transition: transform 0.15s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.sticker-del-btn:hover {
+  transform: scale(1.15);
+}
+
+/* Scale Buttons (+ and −) */
+.sticker-scale-btn {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(3, 7, 18, 0.92);
+  color: #00F0FF;
+  border: 1.5px solid #00F0FF;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+  padding: 0;
+}
+
+.sticker-scale-btn.scale-up {
+  top: -10px;
+  left: -10px;
+}
+
+.sticker-scale-btn.scale-down {
+  bottom: -10px;
+  left: -10px;
+}
+
+.sticker-scale-btn:hover {
+  transform: scale(1.15);
+  background: #00F0FF;
+  color: #030712;
+}
+
+/* Corner Drag Resize Handle (Bottom-Right) */
+.sticker-resize-handle {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #00F0FF;
+  color: #030712;
+  border: 1.5px solid #030712;
+  cursor: nwse-resize;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  transition: transform 0.15s ease;
+  padding: 0;
+}
+
+.sticker-resize-handle:hover {
+  transform: scale(1.15);
 }
 
 /* Side Toolbox Drawer */
@@ -1446,23 +1548,33 @@ body::before {
 }
 
 .tool-icon-btn {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-default);
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  transition: all 0.2s ease;
+  color: var(--text-secondary);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+.tool-icon-btn:hover {
+  transform: scale(1.15);
+  border-color: #00F0FF;
+  color: #ffffff;
 }
 
 .tool-icon-btn.active {
-  background: var(--accent-blue);
-  border-color: #38bdf8;
-  color: #ffffff;
+  background: rgba(239, 68, 68, 0.25);
+  border-color: #ef4444;
+  color: #ef4444;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
 }
 
 .brush-size-row {

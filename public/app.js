@@ -821,49 +821,166 @@ class PhotoBoothApp {
   }
 
   addStickerToCanvas(sticker) {
+    // Deselect other stickers
+    document.querySelectorAll('.sticker-item').forEach((s) => s.classList.remove('selected'));
+
     const stickerEl = document.createElement('div');
     stickerEl.className = 'sticker-item selected';
-    const width = sticker.default_width || 100;
-    stickerEl.style.width = `${width}px`;
-    stickerEl.style.height = `${width * 0.75}px`;
-    stickerEl.style.left = '40%';
-    stickerEl.style.top = '40%';
+    const initWidth = sticker.default_width || 120;
+    stickerEl.style.width = `${initWidth}px`;
+    stickerEl.style.height = `${initWidth}px`;
+    stickerEl.style.left = '38%';
+    stickerEl.style.top = '38%';
+    stickerEl.dataset.aspectRatio = '1';
 
+    // HTML structure with image, delete button, scale buttons (+ and -), and corner drag resize handle
     stickerEl.innerHTML = `
-      <img src="${sticker.src}" alt="${sticker.name}" style="width:100%;height:100%;object-fit:contain;pointer-events:none;">
-      <button class="sticker-del-btn" style="position:absolute;top:-8px;right:-8px;background:#ef4444;color:#fff;border:none;border-radius:50%;width:22px;height:22px;font-size:11px;font-weight:bold;cursor:pointer;display:flex;align-items:center;justify-content:center;" title="Delete">✕</button>
+      <img src="${sticker.src}" alt="${sticker.name}" class="sticker-img" style="width:100%;height:100%;object-fit:contain;pointer-events:none;display:block;">
+      <button class="sticker-del-btn" title="Delete">✕</button>
+      <button class="sticker-scale-btn scale-up" title="Enlarge">+</button>
+      <button class="sticker-scale-btn scale-down" title="Shrink">−</button>
+      <div class="sticker-resize-handle" title="Drag to Resize">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 3h6v6"/>
+          <path d="M9 21H3v-6"/>
+          <path d="M21 3l-7 7"/>
+          <path d="M3 21l7-7"/>
+        </svg>
+      </div>
     `;
 
-    // Make Draggable
+    const img = stickerEl.querySelector('.sticker-img');
+    if (img) {
+      img.onload = () => {
+        if (img.naturalWidth && img.naturalHeight) {
+          const aspect = img.naturalWidth / img.naturalHeight;
+          stickerEl.dataset.aspectRatio = aspect;
+          const currentW = stickerEl.offsetWidth || initWidth;
+          stickerEl.style.height = `${Math.round(currentW / aspect)}px`;
+        }
+      };
+    }
+
+    // 1. Delete Button
+    const delBtn = stickerEl.querySelector('.sticker-del-btn');
+    if (delBtn) {
+      delBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        stickerEl.remove();
+        if (this.activeStickerEl === stickerEl) this.activeStickerEl = null;
+      });
+    }
+
+    // 2. Scale Up (+) Button
+    const scaleUpBtn = stickerEl.querySelector('.scale-up');
+    if (scaleUpBtn) {
+      const handleScaleUp = (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        const curW = stickerEl.offsetWidth;
+        const aspect = parseFloat(stickerEl.dataset.aspectRatio) || 1;
+        const newW = Math.min(420, Math.round(curW * 1.18));
+        stickerEl.style.width = `${newW}px`;
+        stickerEl.style.height = `${Math.round(newW / aspect)}px`;
+      };
+      scaleUpBtn.addEventListener('click', handleScaleUp);
+      scaleUpBtn.addEventListener('touchstart', handleScaleUp, { passive: false });
+    }
+
+    // 3. Scale Down (−) Button
+    const scaleDownBtn = stickerEl.querySelector('.scale-down');
+    if (scaleDownBtn) {
+      const handleScaleDown = (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        const curW = stickerEl.offsetWidth;
+        const aspect = parseFloat(stickerEl.dataset.aspectRatio) || 1;
+        const newW = Math.max(45, Math.round(curW * 0.82));
+        stickerEl.style.width = `${newW}px`;
+        stickerEl.style.height = `${Math.round(newW / aspect)}px`;
+      };
+      scaleDownBtn.addEventListener('click', handleScaleDown);
+      scaleDownBtn.addEventListener('touchstart', handleScaleDown, { passive: false });
+    }
+
+    // 4. Corner Drag Resize Handle
+    const resizeHandle = stickerEl.querySelector('.sticker-resize-handle');
+    let isResizing = false;
+    let rStartX = 0;
+    let rStartWidth = 0;
+    let rAspect = 1;
+
+    const onResizeDown = (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      isResizing = true;
+      const pt = e.touches ? e.touches[0] : e;
+      rStartX = pt.clientX;
+      rStartWidth = stickerEl.offsetWidth;
+      rAspect = parseFloat(stickerEl.dataset.aspectRatio) || 1;
+      document.body.style.cursor = 'nwse-resize';
+    };
+
+    const onResizeMove = (e) => {
+      if (!isResizing) return;
+      e.preventDefault();
+      const pt = e.touches ? e.touches[0] : e;
+      const dx = pt.clientX - rStartX;
+      const newWidth = Math.max(45, Math.min(420, rStartWidth + dx));
+      stickerEl.style.width = `${Math.round(newWidth)}px`;
+      stickerEl.style.height = `${Math.round(newWidth / rAspect)}px`;
+    };
+
+    const onResizeUp = () => {
+      if (isResizing) {
+        isResizing = false;
+        document.body.style.cursor = '';
+      }
+    };
+
+    if (resizeHandle) {
+      resizeHandle.addEventListener('mousedown', onResizeDown);
+      resizeHandle.addEventListener('touchstart', onResizeDown, { passive: false });
+    }
+    window.addEventListener('mousemove', onResizeMove);
+    window.addEventListener('touchmove', onResizeMove, { passive: false });
+    window.addEventListener('mouseup', onResizeUp);
+    window.addEventListener('touchend', onResizeUp);
+
+    // 5. Drag Movement Logic for Sticker
     let isDragging = false;
-    let startX = 0;
-    let startY = 0;
+    let dragStartX = 0;
+    let dragStartY = 0;
     let origLeft = 0;
     let origTop = 0;
 
     const onPointerDown = (e) => {
-      if (e.target.classList.contains('sticker-del-btn')) {
-        stickerEl.remove();
+      if (
+        e.target.closest('.sticker-del-btn') ||
+        e.target.closest('.sticker-scale-btn') ||
+        e.target.closest('.sticker-resize-handle')
+      ) {
         return;
       }
-      isDragging = true;
-      startX = e.clientX || e.touches?.[0]?.clientX;
-      startY = e.clientY || e.touches?.[0]?.clientY;
-      origLeft = stickerEl.offsetLeft;
-      origTop = stickerEl.offsetTop;
+      e.stopPropagation();
 
-      document.querySelectorAll('.sticker-item').forEach(s => s.classList.remove('selected'));
+      document.querySelectorAll('.sticker-item').forEach((s) => s.classList.remove('selected'));
       stickerEl.classList.add('selected');
       this.activeStickerEl = stickerEl;
-      e.stopPropagation();
+
+      isDragging = true;
+      const pt = e.touches ? e.touches[0] : e;
+      dragStartX = pt.clientX;
+      dragStartY = pt.clientY;
+      origLeft = stickerEl.offsetLeft;
+      origTop = stickerEl.offsetTop;
     };
 
     const onPointerMove = (e) => {
       if (!isDragging) return;
-      const curX = e.clientX || e.touches?.[0]?.clientX;
-      const curY = e.clientY || e.touches?.[0]?.clientY;
-      const dx = curX - startX;
-      const dy = curY - startY;
+      const pt = e.touches ? e.touches[0] : e;
+      const dx = pt.clientX - dragStartX;
+      const dy = pt.clientY - dragStartY;
       stickerEl.style.left = `${origLeft + dx}px`;
       stickerEl.style.top = `${origTop + dy}px`;
     };
@@ -879,6 +996,7 @@ class PhotoBoothApp {
     window.addEventListener('mouseup', onPointerUp);
     window.addEventListener('touchend', onPointerUp);
 
+    this.activeStickerEl = stickerEl;
     this.studioStickersLayer.appendChild(stickerEl);
   }
 
@@ -954,6 +1072,16 @@ class PhotoBoothApp {
     // Undo / Clear
     if (this.btnUndoDraw) this.btnUndoDraw.addEventListener('click', () => this.undoDraw());
     if (this.btnClearDraw) this.btnClearDraw.addEventListener('click', () => this.clearDrawingsAndStickers());
+
+    // Deselect active sticker when clicking/tapping empty viewport
+    if (this.studioViewport) {
+      this.studioViewport.addEventListener('pointerdown', (e) => {
+        if (!e.target.closest('.sticker-item') && !e.target.closest('.sticker-pick-btn')) {
+          document.querySelectorAll('.sticker-item').forEach((s) => s.classList.remove('selected'));
+          this.activeStickerEl = null;
+        }
+      });
+    }
 
     // Finish Decoration Studio
     if (this.btnFinishDecorate) {
@@ -1070,17 +1198,18 @@ class PhotoBoothApp {
       ctx.drawImage(this.studioDrawCanvas, 0, 0, targetWidth, targetHeight);
 
       // 3. Draw Placed Stickers
+      document.querySelectorAll('.sticker-item').forEach((s) => s.classList.remove('selected'));
       const stickers = this.studioStickersLayer.querySelectorAll('.sticker-item');
       const vRect = this.studioViewport.getBoundingClientRect();
 
       for (const st of stickers) {
-        const img = st.querySelector('img');
+        const img = st.querySelector('.sticker-img') || st.querySelector('img');
         if (img && img.complete) {
-          const sRect = st.getBoundingClientRect();
-          const relX = (sRect.left - vRect.left) / vRect.width;
-          const relY = (sRect.top - vRect.top) / vRect.height;
-          const relW = sRect.width / vRect.width;
-          const relH = sRect.height / vRect.height;
+          const imgRect = img.getBoundingClientRect();
+          const relX = (imgRect.left - vRect.left) / vRect.width;
+          const relY = (imgRect.top - vRect.top) / vRect.height;
+          const relW = imgRect.width / vRect.width;
+          const relH = imgRect.height / vRect.height;
           ctx.drawImage(img, relX * targetWidth, relY * targetHeight, relW * targetWidth, relH * targetHeight);
         }
       }
@@ -1115,6 +1244,9 @@ class PhotoBoothApp {
       const finalUrl = compData.imageUrl || compositeDataUrl;
       this.currentGeneratedImageUrl = finalUrl;
       this.resultPhoto.src = finalUrl;
+      if (compData.qrUrl) {
+        this.qrCode.src = compData.qrUrl;
+      }
 
       // Update photo frame container class on result screen
       const resultFrameContainer = document.querySelector('.photo-frame-container');

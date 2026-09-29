@@ -1,5 +1,5 @@
 {
-  "active_engine": "face_swap",
+  "active_engine": "cloud_fal",
   "fal_model": "fal-ai/flux-pulid",
   "replicate_model": "stability-ai/sdxl",
   "local_comfy_url": "http://127.0.0.1:8188",
@@ -136,6 +136,7 @@
       "category_th": "อวกาศและทางการ",
       "preview_img": "/assets/costumes/astronaut.jpg",
       "template_img": "/assets/costumes/astronaut.jpg",
+      "prompt": "cinematic portrait of this person as an elite astronaut in low Earth orbit, sleek futuristic spacesuit with GISTDA and Thailand mission patches, glowing cyan helmet visor reflections, THEOS-2 satellite and Earth horizon backdrop, dramatic studio lighting, 8k, photorealistic, sharp focus",
       "description": "Certified deep space EVA suit with THEOS-2 mission badge & Thai flag",
       "description_th": "ชุดนักบินอวกาศภารกิจ THEOS-2 พร้อมตราภารกิจทางการและธงชาติไทย",
       "icon": ""
