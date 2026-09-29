@@ -1,5 +1,5 @@
 /**
- * THAILAND SPACE EXPO 2026 (TSX 2026) — GISTDA AI MISSION STUDIO
+ * GISTDA PARTNER ENGAGEMENT PROGRAM 2026 — AI MISSION STUDIO
  * Engineered by HAMO Event Lab (Sinjanakom Corporation Co., Ltd.)
  * - 1 Official Theme: THEOS-2 Mission Spacesuit (Seamless Neural Face-Swap)
  * - Photo Format Selection FIRST (4:6 Postcard, 1:1 Square, 2:6 Photostrip)
@@ -13,9 +13,9 @@
 const TRANSLATIONS = {
   th: {
     agency_badge: 'GISTDA THAILAND',
-    header_title: 'THAILAND SPACE EXPO 2026',
+    header_title: 'GISTDA PARTNER ENGAGEMENT PROGRAM 2026',
     header_sub: 'AI MISSION AVATAR STUDIO',
-    btn_stage: '📺 จอแสดงผล Stage',
+    btn_stage: 'จอแสดงผล Stage',
     step1_tag: 'ขั้นตอนที่ 1 จาก 4 • เตรียมภารกิจ',
     step1_title: 'THEOS-2 Mission Avatar Studio',
     step1_desc: 'ชุดนักบินอวกาศภารกิจทางการ สทอภ. • เลือกขนาดรูปถ่ายและแตะเพื่อเริ่มถ่ายภาพ:',
@@ -24,14 +24,14 @@ const TRANSLATIONS = {
     feat_instant: 'สวมใส่ชุดทันใจ',
     feat_frame: 'พรีวิวกรอบภาพสด',
     feat_print: 'พร้อมพิมพ์เป็นที่ระลึก',
-    format_select_title: '📐 เลือกขนาดรูปถ่ายและกรอบ',
+    format_select_title: 'เลือกขนาดรูปถ่ายและกรอบ',
     format_select_hint: 'ช่องมองกล้องจะปรับสัดส่วนตามกรอบที่คุณเลือก',
-    btn_confirm_style: 'เริ่มถ่ายภาพสด 📸',
-    btn_back_style: '⬅️ เปลี่ยนขนาด',
+    btn_confirm_style: 'เริ่มถ่ายภาพสด',
+    btn_back_style: 'เปลี่ยนขนาด',
     style_prefix: 'สไตล์',
     costume_prefix: 'ชุด',
-    tab_camera: '📸 ถ่ายภาพสด',
-    tab_upload: '📁 อัปโหลดภาพ',
+    tab_camera: 'ถ่ายภาพสด',
+    tab_upload: 'อัปโหลดภาพ',
     upload_title: 'คลิกเพื่อเลือกภาพ หรือลากไฟล์มาวาง',
     upload_hint: 'รองรับภาพเซลฟี่หรือภาพพอร์ตเทรต (JPG, PNG, WebP)',
     btn_browse: 'เลือกไฟล์ในเครื่อง',
@@ -43,31 +43,31 @@ const TRANSLATIONS = {
     step3_tag: 'ขั้นตอนที่ 3 จาก 4',
     step3_title: 'สตูดิโอตกแต่งภาพดิจิทัล',
     step3_hint: 'เซ็นชื่อด้วยปากกานีออน ติดตราสัญลักษณ์ภารกิจ และปรับแต่งกรอบภาพได้ตามต้องการ',
-    btn_undo: '↩️ ย้อนกลับ',
-    btn_clear: '🗑️ ล้างทั้งหมด',
-    tool_frames: '🖼️ กรอบตราสัญลักษณ์ภารกิจ',
-    tool_pen: '✍️ ปากกานีออนและลายเซ็นต์',
-    tool_stickers: '✨ ตราสัญลักษณ์และสติกเกอร์',
-    btn_finish: 'เสร็จสิ้นและรับภาพ 🚀',
-    btn_assembling: '⏳ กำลังรวมภาพที่ระลึก...',
+    btn_undo: 'ย้อนกลับ',
+    btn_clear: 'ล้างทั้งหมด',
+    tool_frames: 'กรอบตราสัญลักษณ์ภารกิจ',
+    tool_pen: 'ปากกานีออนและลายเซ็นต์',
+    tool_stickers: 'ตราสัญลักษณ์และสติกเกอร์',
+    btn_finish: 'เสร็จสิ้นและรับภาพ',
+    btn_assembling: 'กำลังรวมภาพที่ระลึก...',
     result_badge: 'ภาพที่ระลึกพร้อมดาวน์โหลด & พิมพ์',
     result_title: 'สแกน QR Code หรือบันทึกลงอุปกรณ์',
     result_hint: 'สแกนด้วยกล้องสมาร์ตโฟนเพื่อดาวน์โหลดภาพความละเอียดสูงเก็บเป็นที่ระลึก',
-    btn_save: '⬇️ บันทึกลงอุปกรณ์',
-    btn_print: '🖨️ พิมพ์ภาพที่ระลึก',
-    btn_next: '✨ ต้อนรับท่านถัดไป',
+    btn_save: 'บันทึกลงอุปกรณ์',
+    btn_print: 'พิมพ์ภาพที่ระลึก',
+    btn_next: 'ต้อนรับท่านถัดไป',
     pen_badge: 'ปากกานีออน',
     eraser_badge: 'ยางลบ',
-    printing_msg: '🖨️ กำลังส่งพิมพ์ภาพ...',
-    print_queued: 'ส่งไฟล์ภาพไปยังเครื่องพิมพ์ดายซับเรียบร้อยแล้ว!',
+    printing_msg: 'กำลังส่งพิมพ์ภาพ...',
+    print_queued: 'ส่งไฟล์ภาพไปยังเครื่องพิมพ์ดายซับเรียบร้อยแล้ว',
     print_failed: 'ไม่สามารถส่งพิมพ์ภาพได้',
-    saved_device: '✅ บันทึกลงเครื่องสำเร็จ',
+    saved_device: 'บันทึกลงเครื่องสำเร็จ',
   },
   en: {
     agency_badge: 'GISTDA THAILAND',
-    header_title: 'THAILAND SPACE EXPO 2026',
+    header_title: 'GISTDA PARTNER ENGAGEMENT PROGRAM 2026',
     header_sub: 'AI MISSION AVATAR STUDIO',
-    btn_stage: '📺 Stage Screen',
+    btn_stage: 'Stage Screen',
     step1_tag: 'STEP 1 OF 4 • MISSION SETUP',
     step1_title: 'THEOS-2 Mission Avatar Studio',
     step1_desc: 'Official GISTDA Deep Space EVA Suit • Select your photo size and tap to start:',
@@ -76,14 +76,14 @@ const TRANSLATIONS = {
     feat_instant: 'Instant Face Fit',
     feat_frame: 'Live Border Viewfinder',
     feat_print: 'Dye-Sub Keepsake Ready',
-    format_select_title: '📐 SELECT PHOTO SIZE & BORDER',
+    format_select_title: 'SELECT PHOTO SIZE & BORDER',
     format_select_hint: 'Viewfinder will adapt to this exact border',
-    btn_confirm_style: 'Start Live Camera 📸',
-    btn_back_style: '⬅️ Change Size',
+    btn_confirm_style: 'Start Live Camera',
+    btn_back_style: 'Change Size',
     style_prefix: 'Style',
     costume_prefix: 'Spacesuit',
-    tab_camera: '📸 Live Camera',
-    tab_upload: '📁 Upload Photo',
+    tab_camera: 'Live Camera',
+    tab_upload: 'Upload Photo',
     upload_title: 'Click to Select or Drag Photo',
     upload_hint: 'Upload any selfie or portrait photo (JPG, PNG, WebP)',
     btn_browse: 'Browse Files',
@@ -95,25 +95,25 @@ const TRANSLATIONS = {
     step3_tag: 'STEP 3 OF 4',
     step3_title: 'Interactive Touch Studio',
     step3_hint: 'Sign with neon starlight, place mission patches, and finalize your keepsake border!',
-    btn_undo: '↩️ Undo',
-    btn_clear: '🗑️ Clear',
-    tool_frames: '🖼️ MISSION FORMAT & FRAMES',
-    tool_pen: '✍️ SIGNATURE & WISH PEN',
-    tool_stickers: '✨ DIGITAL STICKERS & PROPS',
-    btn_finish: 'Complete & Download 🚀',
-    btn_assembling: '⏳ Assembling Keepsake...',
+    btn_undo: 'Undo',
+    btn_clear: 'Clear',
+    tool_frames: 'MISSION FORMAT & FRAMES',
+    tool_pen: 'SIGNATURE & WISH PEN',
+    tool_stickers: 'DIGITAL STICKERS & PROPS',
+    btn_finish: 'Complete & Download',
+    btn_assembling: 'Assembling Keepsake...',
     result_badge: 'MISSION SOUVENIR READY',
     result_title: 'Scan or Save to Device',
     result_hint: 'Scan with your smartphone camera to save the high-res keepsake directly.',
-    btn_save: '⬇️ Save to Device',
-    btn_print: '🖨️ Print Keepsake',
-    btn_next: '✨ Next Guest',
+    btn_save: 'Save to Device',
+    btn_print: 'Print Keepsake',
+    btn_next: 'Next Guest',
     pen_badge: 'Neon Pen',
     eraser_badge: 'Eraser',
-    printing_msg: '🖨️ Printing Photo...',
+    printing_msg: 'Printing Photo...',
     print_queued: 'Photo queued to local dye-sub printer successfully!',
     print_failed: 'Failed to send print job.',
-    saved_device: '✅ Saved to Device',
+    saved_device: 'Saved to Device',
   }
 };
 
@@ -424,7 +424,7 @@ class PhotoBoothApp {
       this.config = await res.json();
 
       if (this.engineBadge) {
-        this.engineBadge.textContent = `🛰️ ${this.config.active_engine.toUpperCase()}: READY`;
+        this.engineBadge.textContent = `${this.config.active_engine.toUpperCase()}: READY`;
       }
 
       if (this.config.print_enabled && this.btnPrint) {
@@ -764,7 +764,7 @@ class PhotoBoothApp {
       const btn = document.createElement('button');
       btn.className = `frame-btn ${frame.id === this.selectedFrameId ? 'active' : ''}`;
       const name = this.lang === 'th' ? (frame.name_th || frame.name) : frame.name;
-      btn.innerHTML = `<span>${frame.icon || '🛰️'}</span><span>${name}</span>`;
+      btn.innerHTML = `<span>${name}</span>`;
       btn.onclick = () => {
         document.querySelectorAll('.frame-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
@@ -1123,7 +1123,7 @@ class PhotoBoothApp {
       // Update download link
       if (this.btnDownload) {
         this.btnDownload.href = finalUrl;
-        this.btnDownload.setAttribute('download', `gistda_tsx2026_avatar_${Date.now()}.jpg`);
+        this.btnDownload.setAttribute('download', `partner2026_avatar_${Date.now()}.jpg`);
       }
 
       this.showScreen('result');
@@ -1196,19 +1196,19 @@ class PhotoBoothApp {
     const t = TRANSLATIONS[this.lang] || TRANSLATIONS.th;
 
     const originalText = this.btnDownload.innerHTML;
-    this.btnDownload.innerHTML = '⏳ ...';
+    this.btnDownload.innerHTML = 'Saving...';
 
     try {
       const response = await fetch(this.currentGeneratedImageUrl);
       const blob = await response.blob();
-      const filename = `gistda_tsx2026_avatar_${Date.now()}.jpg`;
+      const filename = `partner2026_avatar_${Date.now()}.jpg`;
 
       const file = new File([blob], filename, { type: 'image/jpeg' });
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           files: [file],
-          title: 'Thailand Space Expo 2026',
-          text: 'My Mission Avatar at Thailand Space Expo 2026 (GISTDA)',
+          title: 'GISTDA Partner Engagement Program 2026',
+          text: 'My Mission Avatar at GISTDA Partner Engagement Program 2026',
         });
         this.btnDownload.innerHTML = originalText;
         return;

@@ -20,7 +20,7 @@
     <circle cx="16" cy="28" r="6" fill="#00F0FF"/>
     <text x="36" y="34" font-family="'Geist', sans-serif" font-size="24" font-weight="900" fill="#FFFFFF" letter-spacing="4">GISTDA</text>
     <text x="175" y="34" font-family="'Geist', sans-serif" font-size="20" font-weight="500" fill="#64748B">|</text>
-    <text x="195" y="34" font-family="'Geist', sans-serif" font-size="20" font-weight="700" fill="#38BDF8" letter-spacing="2">THAILAND SPACE EXPO 2026</text>
+    <text x="195" y="34" font-family="'Geist', sans-serif" font-size="18" font-weight="700" fill="#38BDF8" letter-spacing="2">PARTNER ENGAGEMENT PROGRAM 2026</text>
     
     <text x="1060" y="34" font-family="'Geist Mono', monospace" font-size="16" font-weight="700" fill="#00F0FF" text-anchor="end" letter-spacing="2">OCT 27–31, 2026</text>
   </g>
@@ -29,7 +29,7 @@
   <line x1="65" y1="1560" x2="1135" y2="1560" stroke="#1E293B" stroke-width="2"/>
   
   <g transform="translate(65, 1590)">
-    <text x="0" y="35" font-family="'Geist', 'Prompt', sans-serif" font-size="34" font-weight="800" fill="#FFFFFF" letter-spacing="2">TSX 2026 VIP KEEPSAKE</text>
+    <text x="0" y="35" font-family="'Geist', 'Prompt', sans-serif" font-size="32" font-weight="800" fill="#FFFFFF" letter-spacing="2">PARTNER 2026 VIP KEEPSAKE</text>
     <text x="0" y="75" font-family="'Prompt', sans-serif" font-size="20" font-weight="400" fill="#94A3B8">สำนักงานพัฒนาเทคโนโลยีอวกาศและภูมิสารสนเทศ (องค์การมหาชน)</text>
     <text x="0" y="105" font-family="'Geist Mono', monospace" font-size="14" font-weight="500" fill="#38BDF8" letter-spacing="1">ACTIVITY 4: VIP RECEPTION GALA • ICONSIAM RIVERFRONT</text>
 

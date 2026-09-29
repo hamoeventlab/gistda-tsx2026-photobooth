@@ -18,7 +18,7 @@ export class MockAdapter {
       pipeline = pipeline.modulate({ hue: 195, saturation: 1.4, brightness: 1.05 });
     } else if (presetId === 'cyber_space' || presetId === 'cyberpunk') {
       pipeline = pipeline.modulate({ hue: 200, saturation: 1.8, brightness: 1.05 });
-    } else if (presetId === 'tsx_gala_night' || presetId === 'hollywood_glam') {
+    } else if (presetId === 'gala_night' || presetId === 'hollywood_glam') {
       pipeline = pipeline.modulate({ hue: 35, saturation: 1.3, brightness: 1.1 });
     } else if (presetId === 'skp_systems_lead' || presetId === 'retro_vintage') {
       pipeline = pipeline.modulate({ saturation: 0.9, brightness: 1.05 });

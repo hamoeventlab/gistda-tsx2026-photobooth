@@ -53,7 +53,7 @@ async function initStage() {
       stagePhotos = [
         { imageUrl: 'themes/cosmic_astronaut.jpg', theme: 'THEOS-2 Earth Orbit', guestName: 'Mission Specialist', timestamp: Date.now() },
         { imageUrl: 'assets/costumes/astronaut.jpg', theme: 'THEOS-2 EVA Suit', guestName: 'Flight Commander', timestamp: Date.now() - 60000 },
-        { imageUrl: 'assets/costumes/executive_gala.jpg', theme: 'Riverfront VIP Gala', guestName: 'TSX VIP Delegate', timestamp: Date.now() - 120000 },
+        { imageUrl: 'assets/costumes/executive_gala.jpg', theme: 'Riverfront VIP Gala', guestName: 'VIP Delegate', timestamp: Date.now() - 120000 },
         { imageUrl: 'assets/costumes/royal_heritage.jpg', theme: 'Royal Space Envoy', guestName: 'Diplomatic Envoy', timestamp: Date.now() - 180000 },
       ];
       renderRibbon();

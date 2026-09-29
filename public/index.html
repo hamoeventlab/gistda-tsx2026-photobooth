@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thailand Space Expo 2026 (TSX 2026) | GISTDA AI Mission Studio</title>
+  <title>GISTDA Partner Engagement Program 2026 | AI Mission Studio</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
   <link rel="shortcut icon" href="/favicon.ico">
@@ -26,11 +26,11 @@
         <div class="brand-divider-vert"></div>
         <div class="brand-title-group">
           <div class="agency-mission-pill">
-            <span class="pulse-rocket">🚀</span>
+            <span class="agency-bullet"></span>
             <span id="badge-agency-text" class="agency-text">GISTDA THAILAND</span>
           </div>
           <div class="brand-titles">
-            <h1 class="brand-title" id="txt-header-title">THAILAND SPACE EXPO 2026</h1>
+            <h1 class="brand-title" id="txt-header-title">GISTDA PARTNER ENGAGEMENT PROGRAM 2026</h1>
             <span class="brand-sub" id="txt-header-sub">AI MISSION AVATAR STUDIO</span>
           </div>
         </div>
@@ -45,15 +45,14 @@
 
         <a href="/stage" target="_blank" class="btn-stage-link" title="Open Stage LED Wall in new tab">
           <span class="live-dot-pulse"></span>
-          <span id="txt-btn-stage">📺 Stage Screen</span>
+          <span id="txt-btn-stage">Stage Screen</span>
         </a>
 
         <button id="btn-theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Theme" title="Toggle Theme">
-          <span class="theme-icon-sun">☀️</span>
-          <span class="theme-icon-moon">🌙</span>
+          <span class="theme-label-mode">THEME</span>
         </button>
 
-        <div id="engine-badge" class="badge">🛰️ Ready</div>
+        <div id="engine-badge" class="badge">READY</div>
       </div>
     </header>
 
@@ -89,15 +88,15 @@
               </p>
               <div class="theme-hero-features">
                 <div class="hero-feat-item">
-                  <span class="feat-icon">⚡</span>
+                  <span class="feat-dot"></span>
                   <span id="txt-feat-instant">Instant Face Fit</span>
                 </div>
                 <div class="hero-feat-item">
-                  <span class="feat-icon">🎯</span>
+                  <span class="feat-dot"></span>
                   <span id="txt-feat-frame">Live Border Viewfinder</span>
                 </div>
                 <div class="hero-feat-item">
-                  <span class="feat-icon">🖨️</span>
+                  <span class="feat-dot"></span>
                   <span id="txt-feat-print">Dye-Sub Keepsake Ready</span>
                 </div>
               </div>
@@ -107,7 +106,7 @@
           <!-- Photo Size & Format Selection Area -->
           <div class="format-selection-area">
             <div class="format-header-row">
-              <label class="tool-label" id="txt-format-select-title">📐 SELECT PHOTO SIZE & BORDER</label>
+              <label class="tool-label" id="txt-format-select-title">SELECT PHOTO SIZE & BORDER</label>
               <span id="txt-format-select-hint" class="format-hint">Viewfinder will adapt to this exact border</span>
             </div>
 
@@ -118,8 +117,7 @@
 
           <div class="action-footer">
             <button id="btn-confirm-theme" class="btn-primary btn-start-mission">
-              <span class="rocket-icon">🚀</span>
-              <span id="txt-btn-confirm-theme">Start Live Camera 📸</span>
+              <span id="txt-btn-confirm-theme">Start Live Camera</span>
             </button>
           </div>
         </div>
@@ -130,7 +128,7 @@
         <div class="camera-card">
           <div class="camera-header">
             <button id="btn-back-theme" class="btn-text">
-              <span id="txt-btn-back">⬅️ Change Size</span>
+              <span id="txt-btn-back">Change Size</span>
             </button>
             <div class="camera-header-center">
               <span id="selected-theme-badge" class="selected-badge">Spacesuit: THEOS-2 Mission</span>
@@ -143,10 +141,10 @@
           <!-- Input Mode Switcher (Webcam vs Upload) -->
           <div class="input-mode-tabs">
             <button id="tab-mode-camera" class="mode-tab active" data-mode="camera">
-              <span id="txt-tab-camera">📸 Live Camera</span>
+              <span id="txt-tab-camera">Live Camera</span>
             </button>
             <button id="tab-mode-upload" class="mode-tab" data-mode="upload">
-              <span id="txt-tab-upload">📁 Upload Photo</span>
+              <span id="txt-tab-upload">Upload Photo</span>
             </button>
           </div>
 
@@ -191,7 +189,7 @@
             </div>
 
             <!-- Flip Camera Button (Mobile) -->
-            <button id="btn-flip-camera" class="btn-icon-floating" title="Switch Camera">🔄</button>
+            <button id="btn-flip-camera" class="btn-icon-floating" title="Switch Camera">FLIP</button>
           </div>
 
           <!-- Mode 2 & 3: File Upload Box -->
@@ -200,7 +198,7 @@
             <div id="upload-dropzone" class="upload-dropzone">
               <img id="upload-preview" class="upload-preview hidden" alt="Uploaded Preview">
               <div id="upload-placeholder" class="upload-placeholder-content">
-                <span class="upload-icon">📁</span>
+                <div class="upload-indicator-box">PHOTO UPLOAD</div>
                 <h3 id="txt-upload-title">Click to Select or Drag Photo</h3>
                 <p id="txt-upload-hint">Upload any selfie or portrait photo (JPG, PNG, WebP)</p>
                 <button type="button" id="btn-browse-file" class="btn-secondary btn-sm">
@@ -213,11 +211,9 @@
           <!-- Action Buttons Bar -->
           <div class="capture-actions">
             <button id="btn-snap" class="btn-primary btn-capture">
-              <span class="btn-icon">📸</span>
               <span id="txt-btn-snap">Take Snapshot</span>
             </button>
             <button id="btn-generate-uploaded" class="btn-primary btn-capture hidden">
-              <span class="btn-icon">⚡</span>
               <span id="txt-btn-gen-upload">Generate Mission Avatar</span>
             </button>
           </div>
@@ -228,7 +224,7 @@
       <section id="step-loading" class="step-screen hidden">
         <div class="loading-box">
           <div class="spinner-ring">
-            <div class="spinner-core">🛰️</div>
+            <div class="spinner-core"></div>
           </div>
           <h2 id="txt-loading-title">Transforming Your Mission Portrait...</h2>
           <p id="loading-subtitle">Synthesizing Neural Style & Telemetry Lighting...</p>
@@ -250,10 +246,10 @@
             </div>
             <div class="decorate-top-actions">
               <button id="btn-undo-draw" class="btn-secondary btn-sm" title="Undo Last Drawing Stroke">
-                <span id="txt-btn-undo">↩️ Undo</span>
+                <span id="txt-btn-undo">Undo</span>
               </button>
               <button id="btn-clear-draw" class="btn-text btn-sm" title="Clear all drawings and stickers">
-                <span id="txt-btn-clear">🗑️ Clear</span>
+                <span id="txt-btn-clear">Clear</span>
               </button>
             </div>
           </div>
@@ -279,7 +275,7 @@
               
               <!-- 1. Frame Selector Section -->
               <div class="tool-section">
-                <label class="tool-label" id="txt-tool-frames">🖼️ MISSION FORMAT & FRAMES</label>
+                <label class="tool-label" id="txt-tool-frames">MISSION FORMAT & FRAMES</label>
                 <div id="frames-selector" class="frames-selector">
                   <!-- Injected via JavaScript -->
                 </div>
@@ -288,7 +284,7 @@
               <!-- 2. Drawing Tools Section -->
               <div class="tool-section">
                 <div class="tool-label-row">
-                  <label class="tool-label" id="txt-tool-pen">✍️ SIGNATURE & WISH PEN</label>
+                  <label class="tool-label" id="txt-tool-pen">SIGNATURE & WISH PEN</label>
                   <span id="brush-mode-badge" class="badge-mini">Neon Pen</span>
                 </div>
                 
@@ -298,11 +294,11 @@
                   <button class="color-dot" data-color="#F1C40F" style="background: #F1C40F; box-shadow: 0 0 8px #F1C40F;" title="Imperial Gold"></button>
                   <button class="color-dot" data-color="#38BDF8" style="background: #38BDF8; box-shadow: 0 0 8px #38BDF8;" title="Orbital Blue"></button>
                   <button class="color-dot" data-color="#EC4899" style="background: #EC4899; box-shadow: 0 0 8px #EC4899;" title="Plasma Pink"></button>
-                  <button id="btn-tool-eraser" class="tool-icon-btn" title="Eraser">🧹</button>
+                  <button id="btn-tool-eraser" class="tool-icon-btn" title="Eraser">ERASER</button>
                 </div>
 
                 <div class="brush-size-row">
-                  <span class="slider-icon">✏️</span>
+                  <span class="slider-label">SIZE</span>
                   <input type="range" id="brush-size-slider" min="2" max="24" value="6" class="range-slider">
                   <span id="brush-size-display" class="size-val">6px</span>
                 </div>
@@ -310,7 +306,7 @@
 
               <!-- 3. Sticker Drawer Section -->
               <div class="tool-section">
-                <label class="tool-label" id="txt-tool-stickers">✨ DIGITAL STICKERS & PROPS</label>
+                <label class="tool-label" id="txt-tool-stickers">DIGITAL STICKERS & PROPS</label>
                 <div id="stickers-tray" class="stickers-tray">
                   <!-- Injected via JavaScript -->
                 </div>
@@ -319,7 +315,7 @@
               <!-- Finish Decoration Button -->
               <div class="studio-confirm-bar">
                 <button id="btn-finish-decorate" class="btn-primary btn-finish">
-                  <span id="txt-btn-finish">Complete & Download 🚀</span>
+                  <span id="txt-btn-finish">Complete & Download</span>
                 </button>
               </div>
 
@@ -349,14 +345,14 @@
             <p class="qr-hint" id="txt-result-hint">Scan with your smartphone camera to save the high-res keepsake directly.</p>
             
             <div class="result-buttons">
-              <a id="btn-download" class="btn-primary btn-download" download="gistda_tsx2026_avatar.jpg" target="_blank">
-                <span id="txt-btn-download">⬇️ Save to Device</span>
+              <a id="btn-download" class="btn-primary btn-download" download="partner2026_avatar.jpg" target="_blank">
+                <span id="txt-btn-download">Save to Device</span>
               </a>
               <button id="btn-print" class="btn-secondary">
-                <span id="txt-btn-print">🖨️ Print Keepsake</span>
+                <span id="txt-btn-print">Print Keepsake</span>
               </button>
               <button id="btn-reset" class="btn-text-btn">
-                <span id="txt-btn-next">✨ Next Guest</span>
+                <span id="txt-btn-next">Next Guest</span>
               </button>
             </div>
           </div>
@@ -369,10 +365,10 @@
     <footer class="booth-footer">
       <div class="footer-powered">
         <img src="logo/HAMO White.png" alt="HAMO" class="footer-logo">
-        <span>Powered by HAMO Event Lab (Sinjanakom Corporation Co., Ltd.)</span>
+        <span>Powered by HAMO Event Lab</span>
       </div>
       <div class="footer-venue">
-        <span>THAILAND SPACE EXPO 2026 • TRUE ICON HALL (7TH FL, ICONSIAM)</span>
+        <span>GISTDA PARTNER ENGAGEMENT PROGRAM 2026 • TRUE ICON HALL (7TH FL, ICONSIAM)</span>
       </div>
     </footer>
 
