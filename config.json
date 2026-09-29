@@ -54,20 +54,6 @@
       "description_th": "กรอบภารกิจทางการ GISTDA • เหมาะสำหรับรูปโปรไฟล์และบัตรอวาตาร์"
     },
     {
-      "id": "strip_2x6",
-      "name": "2:6 Photostrip (Mission Strip)",
-      "name_th": "2:6 สตริปภาพถ่ายอวกาศ (Mission Strip)",
-      "aspect_ratio": "1:3",
-      "width": 600,
-      "height": 1800,
-      "icon": "",
-      "tag": "2×6 INCH STRIP",
-      "tag_th": "สตริป 2×6 นิ้ว",
-      "svg_path": "/assets/frames/frame_strip_2x6.svg",
-      "description": "Classic 2-cut vertical photo booth souvenir strip",
-      "description_th": "สตริปภาพถ่ายตู้สติกเกอร์แนวตั้ง 2 ช่องสุดคลาสสิก"
-    },
-    {
       "id": "none",
       "name": "Clean Borderless",
       "name_th": "ไร้กรอบ (ภาพเต็ม)",
